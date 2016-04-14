@@ -15,7 +15,7 @@ This repo contains the **Simulation Summary** tool. Shown below is a brief descr
 
 ### Installation
 
-1. Download https://github.com/alteryx/SimScoring/archive/master.zip.
+1. Download https://github.com/alteryx/SimSummary/archive/master.zip.
 2. Rename `.zip` to `.yxi`.
 3. Open in Alteryx to complete installation.
 
@@ -25,8 +25,8 @@ Clone this repo using RStudio or the command line. Use branches to work on featu
 
 The `source` files that will be modified directly include
 
-1. Supporting_Macros/SimScoring.yxmc (backend)
-2. Supporting_Macros/SimScoring1.R   (backend)
+1. Supporting_Macros/SimSummary.yxmc (backend)
+2. Supporting_Macros/SimSummary1.R   (backend)
 3. Gui/layout.html (ui)
 
 Whenever you manipulate one of these source files, you can run the `buildPlugin()` function shown below to update the plugin and install it in Alteryx. Make sure to set `options(alterx.path = <path to alteryx directory>)`  before running the build.
