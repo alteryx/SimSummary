@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<AlteryxJavaScriptPlugin>
+  <EngineSettings EngineDLL="Macro" EngineDLLEntryPoint="Supporting_Macros/SimSummary.yxmc" SDKVersion="10.1"/>
+  <GuiSettings Html="SimSummaryGui.html" Icon="SimSummaryIcon.png" SDKVersion="10.1">
+    <InputConnections>
+      <Connection Name="Field Input" AllowMultiple="False" Optional="True" Type="Connection" Label=""/>
+    </InputConnections>
+    <OutputConnections>
+      <Connection Name="Interactive" AllowMultiple="False" Optional="True" Type="Connection" Label="I"/>
+      <Connection Name="Data" AllowMultiple="False" Optional="True" Type="Connection" Label="D"/>
+      <Connection Name="Report" AllowMultiple="False" Optional="True" Type="Connection" Label="R"/>
+    </OutputConnections>
+  </GuiSettings>
+  <Properties>
+    <MetaInfo>
+      <NameIsFileName>False</NameIsFileName>
+      <Name>Simulation Summary</Name>
+      <Description>Simulation Summary</Description>
+      <ToolInDb>False</ToolInDb>
+      <CategoryName>Prescriptive</CategoryName>
+      <SearchTags>simulation</SearchTags>
+      <Author>Dylan Blanchard</Author>
+      <Company>Alteryx, Inc.</Company>
+      <Copyright>Alteryx, Inc.</Copyright>
+      <DescriptionLink></DescriptionLink>
+    </MetaInfo>
+  </Properties>
+</AlteryxJavaScriptPlugin>
