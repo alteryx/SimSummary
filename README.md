@@ -9,8 +9,9 @@ This repo contains the **Simulation Summary** tool. Shown below is a brief descr
 | SimSummaryConfig.xml               | Configuration for plugin (auto generated)         |
 | SimSummaryGui.html                 | Gui for plugin (auto generated)                   |
 | SimSummaryIcon.png                 | Icon for plugin                                   |
-| Supporting_Macros\\SimSummary.yxmc | Macro backend                                     |
-| Supporting_Macros\\SimSummary1.R   | R code in the macro                               |
+| Gui/layout.html                    | Layout for organizing widgets in Gui.html         |
+| Supporting_Macros/SimSummary.yxmc | Macro backend                                     |
+| Supporting_Macros/SimSummary1.R   | R code in the macro                               |
 
 ### Installation
 
@@ -24,17 +25,21 @@ Clone this repo using RStudio or the command line. Use branches to work on featu
 
 The `source` files that will be modified directly include
 
-1. Supporting_Macros\\SimScoring.yxmc (backend)
-2. Supporting_Macros\\SimScoring1.R   (backend)
+1. Supporting_Macros/SimScoring.yxmc (backend)
+2. Supporting_Macros/SimScoring1.R   (backend)
+3. Gui/layout.html (ui)
 
-Whenever you manipulate one of these source files, you can run the `buildPlugin` function shown below to update the plugin and install it in Alteryx. Make sure to set `options(alterx.path = <path to alteryx directory>)`  before running the build.
+Whenever you manipulate one of these source files, you can run the `buildPlugin()` function shown below to update the plugin and install it in Alteryx. Make sure to set `options(alterx.path = <path to alteryx directory>)`  before running the build.
 
 ```r
 library(AlteryxRhelper)
 options(alteryx.path = <path to alteryx>)
 buildPlugin <- function(pluginDir = "."){
-  withr::with_dir(pluginDir, insertRcode("SimSummary.yxmc", "SimSummary1.R"))
-  createPluginFromMacro(pluginDir)
+  withr::with_dir(file.path(pluginDir, "Supporting_Macros"), 
+    insertRcode("SimSummary.yxmc", "SimSummary1.R")
+  )
+  createPluginFromMacro(pluginDir, layout = TRUE)
   updateHtmlPlugin(pluginDir)
 }
+```
 
