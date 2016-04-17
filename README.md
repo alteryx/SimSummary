@@ -16,7 +16,7 @@ This repo contains the **Simulation Summary** tool. Shown below is a brief descr
 ### Installation
 
 1. Download https://github.com/alteryx/SimSummary/archive/master.zip.
-2. Rename `.zip` to `.yxi`.
+2. Rename `SimSummary-master.zip` to `SimSummary.yxi`.
 3. Open in Alteryx to complete installation.
 
 ### Development
