@@ -81,7 +81,7 @@
     </Node>
     <Node ToolID="300">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="56" y="54" width="406" height="253" />
+        <Position x="56" y="56" width="406" height="251" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -99,7 +99,7 @@
       <ChildNodes>
         <Node ToolID="301">
           <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-            <Position x="66" y="83" width="188.8454" height="214" />
+            <Position x="66" y="84" width="182" height="213" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -166,7 +166,7 @@
         </Node>
         <Node ToolID="303">
           <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-            <Position x="272" y="86" width="180" height="211" />
+            <Position x="272" y="87" width="180" height="210" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -235,7 +235,7 @@
     </Node>
     <Node ToolID="372">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="54" y="407" width="985" height="790" />
+        <Position x="54" y="408" width="985" height="789" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -5311,7 +5311,7 @@
         </Node>
         <Node ToolID="384">
           <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-            <Position x="282" y="503" width="649" height="299.8" />
+            <Position x="282" y="504" width="649" height="298.8" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -5501,7 +5501,7 @@ No Text Styling</DefaultAnnotationText>
         </Node>
         <Node ToolID="397">
           <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-            <Position x="281" y="816" width="733" height="356" />
+            <Position x="281" y="817" width="733" height="355" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -5526,6 +5526,7 @@ No Text Styling</DefaultAnnotationText>
                   <RScript># Inputs ----
 options(alteryx.wd = '%Engine.WorkflowDirectory%')
 library(AlteryxRhelper)
+library(AlteryxSim)
 config &lt;- list(
   dependent = listInput('%Question.dependent%', "R_G"),
   independent = listInput('%Question.independent%', c("SLG", "OPS"))
@@ -5533,78 +5534,6 @@ config &lt;- list(
 inputs &lt;- list(
   data = read.Alteryx2("#1", mode="data.frame")
 )
-
-# Functions (to be moved into the package) ----
-# library(AlteryxSim)
-
-#1. Scatter Plots ---
-single.scat &lt;- function(data, input, output) {
-  plot(
-    data[,input], 
-    data[,output],
-    main = paste(input, " vs ", output, " plot", sep = ""),
-    xlab = input,
-    ylab = output
-  )
-}
-
-sa.scat &lt;- function(data, inputs, outputs) {
-  data &lt;- data[c(inputs, outputs)]
-  par(mfrow=c(length(outputs),length(inputs)))
-  for (j in outputs) {
-    for (i in inputs) {
-      single.scat(data, i, j)
-    }
-  }
-}
-
-#2. Importance Index ---
-sa.importance &lt;- function(data, inputs, outputs) {
-  data &lt;- data[c(inputs, outputs)]
-  results &lt;- as.data.frame(outer(inputs, outputs, FUN=Vectorize(function(input, output) {
-    var(data[,input])/var(data[,output])
-    })))
-	print(results)
-  names(results) &lt;- outputs
-  results &lt;- cbind(independent_variable = inputs, results)
-}
-
-#5. Pearson's R ---
-sa.r &lt;- function(data, inputs, outputs) {
-  results &lt;- as.data.frame(outer(inputs, outputs, FUN=Vectorize(function(input, output) {
-    cor(data[,input],data[,output])
-    })))
-  names(results) &lt;- outputs
-  results &lt;- cbind(independent_variable = inputs, results)
-  return (results)
-}
-
-#8. Partial Correlation Coefficient ---
-sa.pr.single &lt;- function (data, inputs, output) {
-  data &lt;- data[union(inputs, c(output))]
-  results &lt;- as.data.frame(pcor(data)$estimate)
-  names(results) &lt;- union(inputs, c(output))
-  results &lt;- cbind(independent_variable = names(results), results)
-  return (results)
-}
-
-sa.pr &lt;- function(data, inputs, outputs) {
-  full.results &lt;- list()
-  for (output in outputs) {
-    new.results &lt;- sa.pr.single(data, inputs, output)
-    full.results[[length(full.results)+1]] &lt;- new.results
-  }
-  names(full.results) &lt;- outputs
-  return (full.results)
-}
-
-sa.pr2 &lt;- function(data) {
-  library('ppcor')
-	results &lt;- as.data.frame(pcor(data)$estimate)
-	names(results) &lt;- names(data)
-	results &lt;- cbind(Variable = names(results), results)
-	results
-}
 
 
 # Outputs ----
@@ -5636,9 +5565,7 @@ the.prs &lt;- as.data.frame(sa.pr2(inputs$data[,c(config$independent, config$dep
 for (factor in names(the.prs)) {
 	the.prs[,factor] &lt;- as.character(the.prs[,factor])
 }
-write.Alteryx2(the.prs, 4)
- 
-</RScript>
+write.Alteryx2(the.prs, 4)</RScript>
                   <UseFullUpdate value="False" />
                 </Configuration>
                 <Annotation DisplayMode="0">
@@ -5646,31 +5573,6 @@ write.Alteryx2(the.prs, 4)
                   <DefaultAnnotationText />
                   <Left value="False" />
                 </Annotation>
-                <MetaInfo connection="Output1">
-                  <RecordInfo>
-                    <Field name="Graph" size="1073741823" source="Report:R-Graph:" type="V_WString" />
-                  </RecordInfo>
-                </MetaInfo>
-                <MetaInfo connection="Output2">
-                  <RecordInfo>
-                    <Field name="independent_variable" size="1073741823" source="R-DATA:" type="V_WString" />
-                    <Field name="R_G" size="1073741823" source="R-DATA:" type="V_WString" />
-                  </RecordInfo>
-                </MetaInfo>
-                <MetaInfo connection="Output3">
-                  <RecordInfo>
-                    <Field name="independent_variable" size="1073741823" source="R-DATA:" type="V_WString" />
-                    <Field name="R_G" size="1073741823" source="R-DATA:" type="V_WString" />
-                  </RecordInfo>
-                </MetaInfo>
-                <MetaInfo connection="Output4">
-                  <RecordInfo>
-                    <Field name="Variable" size="1073741823" source="R-DATA:" type="V_WString" />
-                    <Field name="SLG" size="1073741823" source="R-DATA:" type="V_WString" />
-                    <Field name="OPS" size="1073741823" source="R-DATA:" type="V_WString" />
-                    <Field name="R_G" size="1073741823" source="R-DATA:" type="V_WString" />
-                  </RecordInfo>
-                </MetaInfo>
               </Properties>
               <EngineSettings EngineDll="AlteryxRPluginEngine.dll" EngineDllEntryPoint="AlteryxR" />
             </Node>
