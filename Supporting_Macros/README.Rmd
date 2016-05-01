@@ -1,0 +1,39 @@
+---
+title: "About the Simulation Summary Tool"
+output: 
+  html_document: 
+    keep_md: yes
+---
+
+<img src="../SimSummaryIcon.png" width=100 height=100 />
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+pluginName = 'SimSummary.yxmc'
+```
+
+__Insert summary of the Simulation Scoring tool__
+
+_Note: This tool uses the R tool. Install R and the necessary packages by going to Options > Download Predictive Tools._
+
+### Inputs
+
+There is only 1 input.
+
+```{r echo = F, comment = NA, results = 'asis', warning = F}
+AlteryxRhelper::extractInputOutput(pluginName)
+```
+
+### Configuration Properties
+
+```{r echo = F, comment = NA, results = 'asis', warning = F}
+AlteryxRhelper::extractConfig(pluginName)
+```
+
+### Output
+
+There are 3 outputs.
+
+```{r echo = F, comment = NA, results = 'asis', warning = F}
+AlteryxRhelper::extractInputOutput(pluginName, type = 'output')
+```
