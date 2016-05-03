@@ -7,24 +7,19 @@ config <- list(
   independent = listInput('%Question.independent%', c("SLG", "OPS"))
 )
 inputs <- list(
-  data = read.Alteryx2("#1", mode="data.frame")
+  data = read.Alteryx("#1", mode="data.frame")
 )
 
 
 
 # Output 1: Scatter Plot
-# AlteryxGraph2({
-#    saScat(inputs$data, config$independent, config$dependent)
-#  }, 1, width=576*length(config$independent), height=576*length(config$dependent)
-# )
-print("input info")
-print(str(inputs$data))
-print(str(config))
+AlteryxGraph(1, width=576*length(config$independent), height=576*length(config$dependent))
+saScat(inputs$data, config$independent, config$dependent)
 
 # Output 2: Importance Index
 importances <- saImportance(inputs$data, config$independent, config$dependent)
 for (factor in names(importances)) {
-	importances[,factor] <- as.character(importances[,factor])
+	importances[,factor] <- importances[,factor]
 }
 write.Alteryx2(importances, 2)
 
