@@ -81,7 +81,7 @@
     </Node>
     <Node ToolID="300">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="56" y="56" width="406" height="251" />
+        <Position x="56" y="54" width="406" height="251" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -99,7 +99,7 @@
       <ChildNodes>
         <Node ToolID="301">
           <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-            <Position x="66" y="84" width="182" height="213" />
+            <Position x="66" y="82" width="182" height="213" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -117,7 +117,7 @@
           <ChildNodes>
             <Node ToolID="280">
               <GuiSettings Plugin="AlteryxGuiToolkit.Questions.DropDownListBox.ListBox">
-                <Position x="76" y="112" width="59" height="59" />
+                <Position x="76" y="110" width="59" height="59" />
               </GuiSettings>
               <Properties>
                 <Configuration />
@@ -131,7 +131,7 @@
             </Node>
             <Node ToolID="281">
               <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-                <Position x="78" y="228" width="59" height="59" />
+                <Position x="78" y="226" width="59" height="59" />
               </GuiSettings>
               <Properties>
                 <Configuration />
@@ -144,7 +144,7 @@
             </Node>
             <Node ToolID="304">
               <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-                <Position x="138" y="180" width="100" height="40" />
+                <Position x="138" y="178" width="100" height="40" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -166,7 +166,7 @@
         </Node>
         <Node ToolID="303">
           <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-            <Position x="272" y="87" width="180" height="210" />
+            <Position x="272" y="85" width="180" height="210" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -184,7 +184,7 @@
           <ChildNodes>
             <Node ToolID="261">
               <GuiSettings Plugin="AlteryxGuiToolkit.Questions.DropDownListBox.ListBox">
-                <Position x="283" y="115" width="59" height="59" />
+                <Position x="283" y="113" width="59" height="59" />
               </GuiSettings>
               <Properties>
                 <Configuration />
@@ -198,7 +198,7 @@
             </Node>
             <Node ToolID="254">
               <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-                <Position x="282" y="228" width="59" height="59" />
+                <Position x="282" y="226" width="59" height="59" />
               </GuiSettings>
               <Properties>
                 <Configuration />
@@ -211,7 +211,7 @@
             </Node>
             <Node ToolID="305">
               <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-                <Position x="342" y="180" width="100" height="40" />
+                <Position x="342" y="178" width="100" height="40" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -235,7 +235,7 @@
     </Node>
     <Node ToolID="372">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="54" y="408" width="985" height="789" />
+        <Position x="54" y="406" width="985" height="789" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -253,7 +253,7 @@
       <ChildNodes>
         <Node ToolID="270">
           <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
-            <Position x="79" y="655.2" />
+            <Position x="79" y="653.2" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -5293,7 +5293,7 @@
         </Node>
         <Node ToolID="279">
           <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-            <Position x="163" y="451" />
+            <Position x="163" y="449" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -5311,7 +5311,7 @@
         </Node>
         <Node ToolID="384">
           <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-            <Position x="282" y="504" width="649" height="298.8" />
+            <Position x="282" y="502" width="649" height="298.8" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -5329,7 +5329,7 @@
           <ChildNodes>
             <Node ToolID="3">
               <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-                <Position x="310" y="547" />
+                <Position x="310" y="545" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5337,7 +5337,6 @@
                   <SelectFields>
                     <SelectField field="SLG" selected="False" />
                     <SelectField field="OPS" selected="False" />
-                    <SelectField field="RandSort" selected="False" />
                     <SelectField field="*Unknown" selected="True" />
                   </SelectFields>
                 </Configuration>
@@ -5356,7 +5355,7 @@
             </Node>
             <Node ToolID="275">
               <GuiSettings>
-                <Position x="655" y="557.8" />
+                <Position x="655" y="555.8" />
               </GuiSettings>
               <Properties>
                 <Configuration />
@@ -5377,7 +5376,7 @@
             </Node>
             <Node ToolID="277">
               <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-                <Position x="847" y="557.8" />
+                <Position x="847" y="555.8" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5395,7 +5394,7 @@
             </Node>
             <Node ToolID="278">
               <GuiSettings Plugin="PortfolioPluginsGui.ComposerText.PortfolioComposerText">
-                <Position x="751" y="557.8" />
+                <Position x="751" y="555.8" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5431,14 +5430,13 @@ No Text Styling</DefaultAnnotationText>
             </Node>
             <Node ToolID="283">
               <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-                <Position x="307" y="718.8" />
+                <Position x="307" y="716.8" />
               </GuiSettings>
               <Properties>
                 <Configuration>
                   <OrderChanged value="False" />
                   <SelectFields>
                     <SelectField field="R_G" selected="False" />
-                    <SelectField field="RandSort" selected="False" />
                     <SelectField field="*Unknown" selected="True" />
                   </SelectFields>
                 </Configuration>
@@ -5458,7 +5456,7 @@ No Text Styling</DefaultAnnotationText>
             </Node>
             <Node ToolID="373">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-                <Position x="426" y="622.8" />
+                <Position x="426" y="620.8" />
               </GuiSettings>
               <Properties>
                 <Configuration joinByRecordPos="True">
@@ -5501,7 +5499,7 @@ No Text Styling</DefaultAnnotationText>
         </Node>
         <Node ToolID="397">
           <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-            <Position x="281" y="817" width="733" height="355" />
+            <Position x="281" y="815" width="733" height="355" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -5519,7 +5517,7 @@ No Text Styling</DefaultAnnotationText>
           <ChildNodes>
             <Node ToolID="398">
               <GuiSettings Plugin="AlteryxRPluginGui.R">
-                <Position x="306" y="920" />
+                <Position x="306" y="918" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5536,36 +5534,38 @@ inputs &lt;- list(
 )
 
 
-# Outputs ----
 
 # Output 1: Scatter Plot
-AlteryxGraph2({
-   sa.scat(inputs$data, config$independent, config$dependent)
- }, 1, width=576*length(config$independent), height=576*length(config$dependent)
-)
-
+# AlteryxGraph2({
+#    saScat(inputs$data, config$independent, config$dependent)
+#  }, 1, width=576*length(config$independent), height=576*length(config$dependent)
+# )
+print("input info")
+print(str(inputs$data))
+print(str(config))
 
 # Output 2: Importance Index
-importances &lt;- sa.importance(inputs$data, config$independent, config$dependent)
+importances &lt;- saImportance(inputs$data, config$independent, config$dependent)
 for (factor in names(importances)) {
 	importances[,factor] &lt;- as.character(importances[,factor])
 }
 write.Alteryx2(importances, 2)
 
 # Output 3: Pearson's R
-the.Rs &lt;- sa.r(inputs$data, config$independent, config$dependent)
+the.Rs &lt;- saR(inputs$data, config$independent, config$dependent)
 for (factor in names(the.Rs)) {
 	the.Rs[,factor] &lt;- as.character(the.Rs[,factor])
 }
 write.Alteryx2(the.Rs, 3)
 
-print(str(inputs$data))
 # Output 4: Partial Correlation Coefficients
-the.prs &lt;- as.data.frame(sa.pr2(inputs$data[,c(config$independent, config$dependent)]))
+the.prs &lt;- as.data.frame(saPr2(inputs$data[,c(config$independent, config$dependent)]))
 for (factor in names(the.prs)) {
 	the.prs[,factor] &lt;- as.character(the.prs[,factor])
 }
-write.Alteryx2(the.prs, 4)</RScript>
+write.Alteryx2(the.prs, 4)
+ 
+</RScript>
                   <UseFullUpdate value="False" />
                 </Configuration>
                 <Annotation DisplayMode="0">
@@ -5578,7 +5578,7 @@ write.Alteryx2(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="401">
               <GuiSettings Plugin="PortfolioPluginsGui.ComposerTable.PortfolioComposerTable">
-                <Position x="426" y="944" />
+                <Position x="426" y="942" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5615,7 +5615,7 @@ write.Alteryx2(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="403">
               <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-                <Position x="523" y="867" />
+                <Position x="523" y="865" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5640,7 +5640,7 @@ write.Alteryx2(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="404">
               <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-                <Position x="618" y="944" />
+                <Position x="618" y="942" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5665,7 +5665,7 @@ write.Alteryx2(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="406">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-                <Position x="714" y="920" />
+                <Position x="714" y="918" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5689,7 +5689,7 @@ write.Alteryx2(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="407">
               <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-                <Position x="930" y="872" />
+                <Position x="930" y="870" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5707,7 +5707,7 @@ write.Alteryx2(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="408">
               <GuiSettings Plugin="PortfolioPluginsGui.ComposerTable.PortfolioComposerTable">
-                <Position x="426" y="1016" />
+                <Position x="426" y="1014" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5744,7 +5744,7 @@ write.Alteryx2(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="409">
               <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-                <Position x="618" y="1016" />
+                <Position x="618" y="1014" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5769,7 +5769,7 @@ write.Alteryx2(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="410">
               <GuiSettings Plugin="PortfolioPluginsGui.ComposerText.PortfolioComposerText">
-                <Position x="426" y="860" />
+                <Position x="426" y="858" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5804,7 +5804,7 @@ write.Alteryx2(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="411">
               <GuiSettings Plugin="PortfolioPluginsGui.ComposerText.PortfolioComposerText">
-                <Position x="522" y="944" />
+                <Position x="522" y="942" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5839,7 +5839,7 @@ write.Alteryx2(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="412">
               <GuiSettings Plugin="PortfolioPluginsGui.ComposerText.PortfolioComposerText">
-                <Position x="522" y="1016" />
+                <Position x="522" y="1014" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5874,7 +5874,7 @@ write.Alteryx2(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="413">
               <GuiSettings Plugin="PortfolioPluginsGui.ComposerText.PortfolioComposerText">
-                <Position x="522" y="1088" />
+                <Position x="522" y="1086" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5909,7 +5909,7 @@ write.Alteryx2(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="414">
               <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-                <Position x="618" y="1088" />
+                <Position x="618" y="1086" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5934,7 +5934,7 @@ write.Alteryx2(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="415">
               <GuiSettings Plugin="PortfolioPluginsGui.ComposerTable.PortfolioComposerTable">
-                <Position x="426" y="1088" />
+                <Position x="426" y="1086" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5973,7 +5973,7 @@ write.Alteryx2(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="416">
               <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-                <Position x="810" y="920" />
+                <Position x="810" y="918" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -6002,7 +6002,7 @@ write.Alteryx2(the.prs, 4)</RScript>
         </Node>
         <Node ToolID="400">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="198" y="584" />
+            <Position x="198" y="582" />
           </GuiSettings>
           <Properties>
             <Configuration>
