@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <AlteryxJavaScriptPlugin>
-  <EngineSettings EngineDLL="Macro" EngineDLLEntryPoint="Supporting_Macros/SimSummary.yxmc" SDKVersion="10.1"/>
+  <EngineSettings EngineDLL="Macro" EngineDLLEntryPoint="SimSummary/Supporting_Macros/SimSummary.yxmc" SDKVersion="10.1"/>
   <GuiSettings Html="SimSummaryGui.html" Icon="SimSummaryIcon.png" SDKVersion="10.1">
     <InputConnections>
       <Connection Name="Field Input" AllowMultiple="False" Optional="False" Type="Connection" Label=""/>
