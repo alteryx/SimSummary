@@ -6,9 +6,9 @@
       <Connection Name="Field Input" AllowMultiple="False" Optional="False" Type="Connection" Label=""/>
     </InputConnections>
     <OutputConnections>
-      <Connection Name="Interactive" AllowMultiple="False" Optional="False" Type="Connection" Label="I"/>
       <Connection Name="Data" AllowMultiple="False" Optional="False" Type="Connection" Label="D"/>
       <Connection Name="Report" AllowMultiple="False" Optional="False" Type="Connection" Label="R"/>
+      <Connection Name="Interactive" AllowMultiple="False" Optional="False" Type="Connection" Label="I"/>
     </OutputConnections>
   </GuiSettings>
   <Properties>
