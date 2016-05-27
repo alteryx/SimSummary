@@ -1,0 +1,2724 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="10.5">
+  <Nodes>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="498" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <StartValue>1</StartValue>
+          <FieldName>RecordID</FieldName>
+          <FieldType>Int32</FieldType>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Add Record ID</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Store_ID" size="4" source="TextInput:" type="String" />
+            <Field name="Store_Name" size="16" source="TextInput:" type="V_String" />
+            <Field name="Week_Ending" source="TextInput:" type="Date" />
+            <Field name="Gross_Rev" source="TextInput:" type="Double" />
+            <Field name="Traffic" source="TextInput:" type="Int16" />
+            <Field name="Spend_Cust" source="TextInput:" type="Double" />
+            <Field name="DMA" source="TextInput:" type="Int16" />
+            <Field name="DMA_Name" size="44" source="TextInput:" type="V_String" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="56">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="378" y="1950" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="key" size="11" source="Summarize: GroupBy - key" type="String" />
+            <Field name="json" size="2147483647" source="Summarize: Concat - json" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="58">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="378" y="2046" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="json" type="V_String" size="2147483647" expression="'{&quot;key&quot;: &quot;' + [key] + '&quot;, ' + [json] + &quot;}&quot;" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <DefaultAnnotationText>json='{"key": "' + [key] + '", ' + [json] + "}"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="key" size="11" source="Summarize: GroupBy - key" type="String" />
+            <Field name="json" size="2147483647" source="Formula: '{&quot;key&quot;: &quot;' + [key] + '&quot;, ' + [json] + &quot;}&quot;" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="59">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="378" y="2142" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="json" action="Concat" rename="data">
+              <Concat_Start>[</Concat_Start>
+              <Separator>,</Separator>
+              <Concat_End>]</Concat_End>
+            </SummarizeField>
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="data" size="2147483647" source="Summarize: Concat - json" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="78">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="246" y="2082" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="Field_1" action="Concat" rename="x">
+              <Concat_Start />
+              <Separator>\n</Separator>
+              <Concat_End />
+            </SummarizeField>
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="x" size="2147483647" source="Summarize: Concat - Field_1" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="81">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
+        <Position x="330" y="2238" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <CartesianMode>Error</CartesianMode>
+          <SelectConfiguration>
+            <Configuration outputConnection="Output">
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="x" size="2147483647" source="Summarize: Concat - Field_1" type="V_String" />
+            <Field name="data" size="2147483647" source="Summarize: Concat - json" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+    </Node>
+    <Node ToolID="80">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="330" y="2430" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="x" type="V_String" size="2147483647" expression="Replace([x], &quot;_LIBPATH_&quot;, [LIBPATH])" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <DefaultAnnotationText>x=Replace([x], "_LIBPATH_", [LIBPATH])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="x" size="2147483647" source="Formula: Replace([x], &quot;_LIBPATH_&quot;, [LIBPATH])" type="V_String" />
+            <Field name="data" size="2147483647" source="Summarize: Concat - json" type="V_String" />
+            <Field name="LIBPATH" size="10000" source="Formula: TrimRight([Field_1]) + &quot;\assets\&quot;" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="82">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="330" y="2526" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="x" type="V_String" size="2147483647" expression="Replace([x], &quot;_DATA_&quot;, [data])" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <DefaultAnnotationText>x=Replace([x], "_DATA_", [data])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="x" size="2147483647" source="Formula: Replace([x], &quot;_DATA_&quot;, [data])" type="V_String" />
+            <Field name="data" size="2147483647" source="Summarize: Concat - json" type="V_String" />
+            <Field name="LIBPATH" size="10000" source="Formula: TrimRight([Field_1]) + &quot;\assets\&quot;" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="111">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="354" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="True" />
+          <Name>Input111</Name>
+          <Abbrev />
+          <ShowFieldMap value="False" />
+          <Optional value="False" />
+          <FileInput>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">.\FS_Data.yxdb</File>
+              <FormatSpecificOptions />
+            </Configuration>
+          </FileInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>Input Data (97)</Name>
+          <AnnotationText>Sample Data</AnnotationText>
+          <DefaultAnnotationText>FS_Data.yxdb</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Store_ID" size="4" source="TextInput:" type="String" />
+            <Field name="Store_Name" size="16" source="TextInput:" type="V_String" />
+            <Field name="Week_Ending" source="TextInput:" type="Date" />
+            <Field name="Gross_Rev" source="TextInput:" type="Double" />
+            <Field name="Traffic" source="TextInput:" type="Int16" />
+            <Field name="Spend_Cust" source="TextInput:" type="Double" />
+            <Field name="DMA" source="TextInput:" type="Int16" />
+            <Field name="DMA_Name" size="44" source="TextInput:" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="105">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RunCommand.RunCommand">
+        <Position x="546" y="2034" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OutputConfiguration>
+            <Configuration />
+          </OutputConfiguration>
+          <InputConfiguration>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">%temp%__temppath__.txt</File>
+              <FormatSpecificOptions>
+                <CodePage>28591</CodePage>
+                <Delimeter>\0</Delimeter>
+                <IgnoreErrors>False</IgnoreErrors>
+                <FieldLen>10000</FieldLen>
+                <AllowShareWrite>False</AllowShareWrite>
+                <HeaderRow>False</HeaderRow>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+              </FormatSpecificOptions>
+            </Configuration>
+          </InputConfiguration>
+          <ProgramName>cmd</ProgramName>
+          <Arguments>/c echo %cd% &gt; %temp%__temppath__.txt</Arguments>
+          <WorkingDir />
+          <RunMinimized value="True" />
+          <RunSilent value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Run cmd</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="10000" source="File: C:\Users\ramnath\AppData\Local\Temp\Engine_1940_b4c02d10172c43fc9ca9708ef49ab38c_\__temppath__.txt" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRunCommand" />
+    </Node>
+    <Node ToolID="107">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="546" y="2118" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="LIBPATH" type="V_String" size="10000" expression="TrimRight([Field_1]) + &quot;\assets\&quot;" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>LIBPATH=TrimRight([Field_1]) + "\assets\"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="10000" source="File: C:\Users\ramnath\AppData\Local\Temp\Engine_1940_b4c02d10172c43fc9ca9708ef49ab38c_\__temppath__.txt" type="V_String" />
+            <Field name="LIBPATH" size="10000" source="Formula: TrimRight([Field_1]) + &quot;\assets\&quot;" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="108">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
+        <Position x="342" y="2334" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <CartesianMode>Error</CartesianMode>
+          <SelectConfiguration>
+            <Configuration outputConnection="Output">
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Source_Field_1" selected="False" />
+                <SelectField field="Source_data" selected="False" rename="Source_data" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="x" size="2147483647" source="Summarize: Concat - Field_1" type="V_String" />
+            <Field name="data" size="2147483647" source="Summarize: Concat - json" type="V_String" />
+            <Field name="LIBPATH" size="10000" source="Formula: TrimRight([Field_1]) + &quot;\assets\&quot;" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+    </Node>
+    <Node ToolID="110">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="112">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="330" y="2634" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>Interactive Output</Name>
+          <Abbrev>I</Abbrev>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="117">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="246" y="1974" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="66" />
+          <Fields>
+            <Field name="Field_1" />
+          </Fields>
+          <Data>
+            <r>
+              <c>&lt;htmldependency src="_LIBPATH_combined.min.js"&gt;&lt;/htmldependency&gt;</c>
+            </r>
+            <r>
+              <c>&lt;htmldependency src="_LIBPATH_combined.min.css"&gt;&lt;/htmldependency&gt;</c>
+            </r>
+            <r>
+              <c>&lt;htmlcontent&gt;&lt;![CDATA[</c>
+            </r>
+            <r>
+              <c>&lt;script&gt;</c>
+            </r>
+            <r>
+              <c>function DATA2(){</c>
+            </r>
+            <r>
+              <c>return _DATA_</c>
+            </r>
+            <r>
+              <c>}</c>
+            </r>
+            <r>
+              <c>&lt;/script&gt;</c>
+            </r>
+            <r>
+              <c>&lt;div id="main"&gt;</c>
+            </r>
+            <r>
+              <c>&lt;div class="navbar navbar-inverse navbar-fixed-top" role="navigation"&gt;</c>
+            </r>
+            <r>
+              <c>&lt;div class="container-fluid"&gt;</c>
+            </r>
+            <r>
+              <c>&lt;div class="navbar-header"&gt;</c>
+            </r>
+            <r>
+              <c>&lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"&gt;</c>
+            </r>
+            <r>
+              <c>&lt;span class="sr-only"&gt;Toggle navigation&lt;/span&gt;</c>
+            </r>
+            <r>
+              <c>&lt;span class="icon-bar"/&gt;</c>
+            </r>
+            <r>
+              <c>&lt;span class="icon-bar"/&gt;</c>
+            </r>
+            <r>
+              <c>&lt;span class="icon-bar"/&gt;</c>
+            </r>
+            <r>
+              <c>&lt;/button&gt;</c>
+            </r>
+            <r>
+              <c>&lt;a class="navbar-brand" href="#"&gt;Field Summary&lt;/a&gt;</c>
+            </r>
+            <r>
+              <c>&lt;/div&gt;</c>
+            </r>
+            <r>
+              <c>&lt;div class="navbar-collapse collapse"&gt;</c>
+            </r>
+            <r>
+              <c>&lt;ul class="nav navbar-nav navbar-left"&gt;&lt;li id="tour"&gt;&lt;a href="#"&gt;</c>
+            </r>
+            <r>
+              <c>&lt;span class="icon-play"&gt; &lt;/span&gt; Tour</c>
+            </r>
+            <r>
+              <c>&lt;/a&gt;&lt;/li&gt;</c>
+            </r>
+            <r>
+              <c>&lt;/ul&gt;&lt;div id="controls"&gt;</c>
+            </r>
+            <r>
+              <c>&lt;div class="pull-right" style="margin-top:8px;"&gt;</c>
+            </r>
+            <r>
+              <c>&lt;div id="sortbtns" class="btn-group" style="display:inline-block;margin-left:0px;margin-top:2px;margin-bottom:10px;"&gt;</c>
+            </r>
+            <r>
+              <c>&lt;span id="sort-asc" class="btn btn-sm btn-default"&gt;</c>
+            </r>
+            <r>
+              <c>&lt;span class="icon-sort-alpha-asc"&gt; &lt;/span&gt;</c>
+            </r>
+            <r>
+              <c>&lt;/span&gt;</c>
+            </r>
+            <r>
+              <c>&lt;span id="sort-desc" class="btn btn-sm btn-default"&gt;</c>
+            </r>
+            <r>
+              <c>&lt;!-- &lt;span class="glyphicon glyphicon-sort-by-alphabet-alt"&gt; &lt;/span&gt; --&gt;</c>
+            </r>
+            <r>
+              <c>&lt;span class="icon-sort-alpha-desc"&gt;</c>
+            </r>
+            <r>
+              <c>&lt;/span&gt;</c>
+            </r>
+            <r>
+              <c>&lt;/span&gt;</c>
+            </r>
+            <r>
+              <c>&lt;span id="sort-missing-asc" class="btn btn-sm btn-default"&gt;</c>
+            </r>
+            <r>
+              <c>&lt;span class="icon-sort-numeric-asc"&gt; &lt;/span&gt;</c>
+            </r>
+            <r>
+              <c>&lt;/span&gt;</c>
+            </r>
+            <r>
+              <c>&lt;span id="sort-missing-desc" class="btn btn-sm btn-default"&gt;</c>
+            </r>
+            <r>
+              <c>&lt;span class="icon-sort-numeric-desc"&gt; &lt;/span&gt;</c>
+            </r>
+            <r>
+              <c>&lt;/span&gt;</c>
+            </r>
+            <r>
+              <c>&lt;/div&gt;</c>
+            </r>
+            <r>
+              <c>&lt;/div&gt;</c>
+            </r>
+            <r>
+              <c>&lt;div class="col-md-6 pull-right" style="margin-top:8px;"&gt;</c>
+            </r>
+            <r>
+              <c>&lt;input id="search" type="text" class="form-control"/&gt;&lt;/div&gt;</c>
+            </r>
+            <r>
+              <c>&lt;/div&gt;</c>
+            </r>
+            <r>
+              <c>&lt;/div&gt;</c>
+            </r>
+            <r>
+              <c>&lt;/div&gt;</c>
+            </r>
+            <r>
+              <c>&lt;/div&gt;</c>
+            </r>
+            <r>
+              <c>&lt;div class="container-fluid" id="con"&gt;</c>
+            </r>
+            <r>
+              <c>&lt;div class="row"&gt; &lt;/div&gt;</c>
+            </r>
+            <r>
+              <c>&lt;/div&gt;</c>
+            </r>
+            <r>
+              <c>&lt;div class="container-fluid"&gt;</c>
+            </r>
+            <r>
+              <c>&lt;div class="row" id="test"&gt; &lt;/div&gt;</c>
+            </r>
+            <r>
+              <c>&lt;div class="row" id="detail2"&gt; &lt;/div&gt;</c>
+            </r>
+            <r>
+              <c>&lt;/div&gt;</c>
+            </r>
+            <r>
+              <c>&lt;a id="openModal" href="#animatedModal" style="display:none;"&gt; &lt;/a&gt;</c>
+            </r>
+            <r>
+              <c>&lt;div id="animatedModal"&gt;</c>
+            </r>
+            <r>
+              <c>&lt;div class="close-animatedModal"&gt; &lt;/div&gt;</c>
+            </r>
+            <r>
+              <c>&lt;div class="modal-content"&gt;</c>
+            </r>
+            <r>
+              <c>&lt;div id="detail"&gt; &lt;/div&gt;</c>
+            </r>
+            <r>
+              <c>&lt;/div&gt;</c>
+            </r>
+            <r>
+              <c>&lt;/div&gt;</c>
+            </r>
+            <r>
+              <c>&lt;/div&gt;</c>
+            </r>
+            <r>
+              <c>]]&gt;&lt;/htmlcontent&gt;</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Field_1" size="117" source="TextInput:" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="120">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="426" y="246" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField field="__DUMMY__" type="Int16" size="2" expression="1" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>__DUMMY__=1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Store_ID" size="4" source="TextInput:" type="String" />
+            <Field name="Store_Name" size="16" source="TextInput:" type="V_String" />
+            <Field name="Week_Ending" source="TextInput:" type="Date" />
+            <Field name="Gross_Rev" source="TextInput:" type="Double" />
+            <Field name="Traffic" source="TextInput:" type="Int16" />
+            <Field name="Spend_Cust" source="TextInput:" type="Double" />
+            <Field name="DMA" source="TextInput:" type="Int16" />
+            <Field name="DMA_Name" size="44" source="TextInput:" type="V_String" />
+            <Field name="__DUMMY__" source="Formula: 1" type="Int16" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="71">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="54" y="326" width="381" height="1597" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Numeric</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="10" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="10">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicSelect.DynamicSelect">
+            <Position x="138" y="354" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>FieldTypes</Mode>
+              <FieldTypes>Byte,Int16,Int32,Int64,FixedDecimal,Float,Double</FieldTypes>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Select Numeric Cols</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+                <Field name="Gross_Rev" source="TextInput:" type="Double" />
+                <Field name="Traffic" source="TextInput:" type="Int16" />
+                <Field name="Spend_Cust" source="TextInput:" type="Double" />
+                <Field name="DMA" source="TextInput:" type="Int16" />
+                <Field name="__DUMMY__" source="Formula: 1" type="Int16" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="RecordID" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDynamicSelect" />
+        </Node>
+        <Node ToolID="12">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+            <Position x="138" y="510" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ErrorWarn>Ignore</ErrorWarn>
+              <KeyFields>
+                <Field field="RecordID" />
+              </KeyFields>
+              <DataFields>
+                <Field field="RecordID" selected="False" />
+                <Field field="Gross_Rev" selected="True" />
+                <Field field="Traffic" selected="True" />
+                <Field field="Spend_Cust" selected="True" />
+                <Field field="DMA" selected="True" />
+                <Field field="__DUMMY__" selected="True" />
+                <Field field="*Unknown" selected="True" />
+              </DataFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Melt Data</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="True" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+                <Field name="Name" size="10" source="Transpose:" type="String" />
+                <Field name="Value" source="(Multiple Sources)" type="Double" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="RecordID" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+        </Node>
+        <Node ToolID="14">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="258" y="606" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="Name" action="GroupBy" rename="Name" />
+                <SummarizeField field="Value" action="Min" rename="min" />
+                <SummarizeField field="Value" action="Max" rename="max" />
+                <SummarizeField field="Value" action="Count" rename="count" />
+                <SummarizeField field="Value" action="CountNonNull" rename="countNonNull" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText><![CDATA[Compute Min/Max
+]]></AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Name" size="10" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="min" source="(Multiple Sources)" type="Double" />
+                <Field name="max" source="(Multiple Sources)" type="Double" />
+                <Field name="count" source="Summarize: Count - Value" type="Int64" />
+                <Field name="countNonNull" source="Summarize: CountNonNull - Value" type="Int64" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="Name" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="16">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="210" y="798" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="Name" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="Name" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Left_RecordID" selected="True" />
+                    <SelectField field="Left_Name" selected="True" />
+                    <SelectField field="Left_Value" selected="True" />
+                    <SelectField field="Right_Count" selected="True" rename="count" />
+                    <SelectField field="Right_extent1n" selected="True" />
+                    <SelectField field="Right_extent2n" selected="True" />
+                    <SelectField field="Right_binsize" selected="True" />
+                    <SelectField field="Right_Min_Value" selected="False" rename="min" />
+                    <SelectField field="Right_Max_Value" selected="False" rename="max" />
+                    <SelectField field="*Unknown" selected="False" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Left">
+              <RecordInfo>
+                <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+                <Field name="Name" size="10" source="Transpose:" type="String" />
+                <Field name="Value" source="(Multiple Sources)" type="Double" />
+              </RecordInfo>
+              <SortInfo noProgress="True">
+                <Field field="Name" />
+              </SortInfo>
+            </MetaInfo>
+            <MetaInfo connection="Join">
+              <RecordInfo>
+                <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+                <Field name="Name" size="10" source="Transpose:" type="String" />
+                <Field name="Value" source="(Multiple Sources)" type="Double" />
+                <Field name="count" source="Summarize: Count - Value" type="Int64" />
+                <Field name="extent1n" source="Formula: [extent1] + [h] * FLOOR([PAD]/2)" type="Double" />
+                <Field name="extent2n" source="Formula: [extent2] - [h] * CEIL([pad]/2) + [h]*0.5" type="Double" />
+                <Field name="binsize" source="Formula: [h]*[step]" type="Double" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="Name" order="" />
+              </SortInfo>
+            </MetaInfo>
+            <MetaInfo connection="Right">
+              <RecordInfo>
+                <Field name="Name" size="10" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="count" source="Summarize: Count - Value" type="Int64" />
+                <Field name="extent1n" source="Formula: [extent1] + [h] * FLOOR([PAD]/2)" type="Double" />
+                <Field name="extent2n" source="Formula: [extent2] - [h] * CEIL([pad]/2) + [h]*0.5" type="Double" />
+                <Field name="binsize" source="Formula: [h]*[step]" type="Double" />
+              </RecordInfo>
+              <SortInfo noProgress="True">
+                <Field field="Name" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="19">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="210" y="1086" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="Name" action="GroupBy" rename="Name" />
+                <SummarizeField field="bin" action="GroupBy" rename="bin" />
+                <SummarizeField field="Value" action="CountNonNull" rename="CountNonNull_Value" />
+                <SummarizeField field="binsize" action="First" rename="binsize" />
+                <SummarizeField field="extent1n" action="First" rename="extent1n" />
+                <SummarizeField field="extent2n" action="First" rename="extent2n" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Name" size="10" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="bin" size="64" source="Summarize: GroupBy - bin" type="String" />
+                <Field name="CountNonNull_Value" source="Summarize: CountNonNull - Value" type="Int64" />
+                <Field name="binsize" source="Formula: [h]*[step]" type="Double" />
+                <Field name="extent1n" source="Formula: [extent1] + [h] * FLOOR([PAD]/2)" type="Double" />
+                <Field name="extent2n" source="Formula: [extent2] - [h] * CEIL([pad]/2) + [h]*0.5" type="Double" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="Name" order="Asc" />
+                <Field field="bin" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="21">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="210" y="1182" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="out" type="String" size="64" expression="'{&quot;x&quot;: ' + ToString([bin]) + ', &quot;y&quot; : ' + ToString([CountNonNull_Value]) + &quot;}&quot;" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="2">
+              <Name />
+              <AnnotationText><![CDATA[Construct JSON
+]]></AnnotationText>
+              <DefaultAnnotationText>out='{"x": ' + ToString([bin]) + ', "y" : ' + ToString([Count...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Name" size="10" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="bin" size="64" source="Summarize: GroupBy - bin" type="String" />
+                <Field name="CountNonNull_Value" source="Summarize: CountNonNull - Value" type="Int64" />
+                <Field name="binsize" source="Formula: [h]*[step]" type="Double" />
+                <Field name="extent1n" source="Formula: [extent1] + [h] * FLOOR([PAD]/2)" type="Double" />
+                <Field name="extent2n" source="Formula: [extent2] - [h] * CEIL([pad]/2) + [h]*0.5" type="Double" />
+                <Field name="out" size="64" source="Formula: '{&quot;x&quot;: ' + ToString([bin]) + ', &quot;y&quot; : ' + ToString([CountNonNull_Value]) + &quot;}&quot;" type="String" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="Name" order="Asc" />
+                <Field field="bin" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="22">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="210" y="1278" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="Name" action="GroupBy" rename="key" />
+                <SummarizeField field="out" action="Concat" rename="value">
+                  <Concat_Start>[</Concat_Start>
+                  <Separator>,</Separator>
+                  <Concat_End>]</Concat_End>
+                </SummarizeField>
+                <SummarizeField field="binsize" action="First" rename="binsize" />
+                <SummarizeField field="extent1n" action="First" rename="extent1n" />
+                <SummarizeField field="extent2n" action="First" rename="extent2n" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="10" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="value" size="2147483647" source="Summarize: Concat - out" type="V_String" />
+                <Field name="binsize" source="Formula: [h]*[step]" type="Double" />
+                <Field name="extent1n" source="Formula: [extent1] + [h] * FLOOR([PAD]/2)" type="Double" />
+                <Field name="extent2n" source="Formula: [extent2] - [h] * CEIL([pad]/2) + [h]*0.5" type="Double" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="Name" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="34">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="64" y="647" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="Name" action="GroupBy" rename="key" />
+                <SummarizeField field="Value" action="Min" rename="min" />
+                <SummarizeField field="Value" action="Percentile" rename="Q1">
+                  <Percentile value="0.25" />
+                </SummarizeField>
+                <SummarizeField field="Value" action="Median" rename="median" />
+                <SummarizeField field="Value" action="Percentile" rename="Q3">
+                  <Percentile value="0.75" />
+                </SummarizeField>
+                <SummarizeField field="Value" action="Max" rename="max" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="10" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="min" source="(Multiple Sources)" type="Double" />
+                <Field name="Q1" source="Summarize: Percentile - Value" type="Double" />
+                <Field name="median" source="Summarize: Median - Value" type="Double" />
+                <Field name="Q3" source="Summarize: Percentile - Value" type="Double" />
+                <Field name="max" source="(Multiple Sources)" type="Double" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="Name" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="38">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+            <Position x="64" y="743" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ErrorWarn>Ignore</ErrorWarn>
+              <KeyFields>
+                <Field field="key" />
+              </KeyFields>
+              <DataFields>
+                <Field field="key" selected="False" />
+                <Field field="min" selected="True" />
+                <Field field="Q1" selected="True" />
+                <Field field="median" selected="True" />
+                <Field field="Q3" selected="True" />
+                <Field field="max" selected="True" />
+                <Field field="*Unknown" selected="True" />
+              </DataFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="10" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="Name" size="6" source="Transpose:" type="String" />
+                <Field name="Value" source="(Multiple Sources)" type="Double" />
+              </RecordInfo>
+              <SortInfo>
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+        </Node>
+        <Node ToolID="39">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="64" y="839" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="json" type="String" size="64" expression="'&quot;' + [Name] + '&quot;: ' + ToString([Value])" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText />
+              <DefaultAnnotationText>json='"' + [Name] + '": ' + ToString([Value])</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="10" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="Name" size="6" source="Transpose:" type="String" />
+                <Field name="Value" source="(Multiple Sources)" type="Double" />
+                <Field name="json" size="64" source="Formula: '&quot;' + [Name] + '&quot;: ' + ToString([Value])" type="String" />
+              </RecordInfo>
+              <SortInfo>
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="40">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="66" y="990" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="key" action="GroupBy" rename="key" />
+                <SummarizeField field="json" action="Concat" rename="summary">
+                  <Concat_Start>{</Concat_Start>
+                  <Separator>,</Separator>
+                  <Concat_End>}</Concat_End>
+                </SummarizeField>
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="10" source="Summarize: GroupBy - key" type="String" />
+                <Field name="summary" size="2147483647" source="Summarize: Concat - json" type="V_String" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="key" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="43">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+            <Position x="150" y="1662" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ErrorWarn>Ignore</ErrorWarn>
+              <KeyFields>
+                <Field field="key" />
+              </KeyFields>
+              <DataFields>
+                <Field field="key" selected="False" />
+                <Field field="value" selected="True" />
+                <Field field="binsize" selected="True" />
+                <Field field="extent1n" selected="True" />
+                <Field field="extent2n" selected="True" />
+                <Field field="summary" selected="True" />
+                <Field field="custom" selected="True" />
+                <Field field="type" selected="True" />
+                <Field field="*Unknown" selected="True" />
+              </DataFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="10" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="Name" size="8" source="Transpose:" type="String" />
+                <Field name="Value" size="2147483647" source="(Multiple Sources)" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+        </Node>
+        <Node ToolID="44">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="150" y="1758" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="json" type="V_String" size="100000000" expression="'&quot;' + [Name] + '&quot; :' + [Value]" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="2">
+              <Name />
+              <DefaultAnnotationText>json='"' + [Name] + '" :' + [Value]</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="10" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="Name" size="8" source="Transpose:" type="String" />
+                <Field name="Value" size="2147483647" source="(Multiple Sources)" type="V_String" />
+                <Field name="json" size="100000000" source="Formula: '&quot;' + [Name] + '&quot; :' + [Value]" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="45">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="150" y="1854" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="key" action="GroupBy" rename="key" />
+                <SummarizeField field="json" action="Concat" rename="json">
+                  <Concat_Start />
+                  <Separator>,</Separator>
+                  <Concat_End />
+                </SummarizeField>
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="10" source="Summarize: GroupBy - key" type="String" />
+                <Field name="json" size="2147483647" source="Summarize: Concat - json" type="V_String" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="key" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="72">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
+            <Position x="162" y="1566" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <CartesianMode>Error</CartesianMode>
+              <SelectConfiguration>
+                <Configuration outputConnection="Output">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="10" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="value" size="2147483647" source="Summarize: Concat - out" type="V_String" />
+                <Field name="binsize" source="Formula: [h]*[step]" type="Double" />
+                <Field name="extent1n" source="Formula: [extent1] + [h] * FLOOR([PAD]/2)" type="Double" />
+                <Field name="extent2n" source="Formula: [extent2] - [h] * CEIL([pad]/2) + [h]*0.5" type="Double" />
+                <Field name="summary" size="2147483647" source="Summarize: Concat - json" type="V_String" />
+                <Field name="custom" size="2147483647" source="Summarize: Concat - json" type="V_String" />
+                <Field name="type" size="9" source="TextInput:" type="String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+        </Node>
+        <Node ToolID="73">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+            <Position x="282" y="1206" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <NumRows value="2" />
+              <Fields>
+                <Field name="type" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>"numeric"</c>
+                </r>
+              </Data>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="type" size="9" source="TextInput:" type="String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+        </Node>
+        <Node ToolID="87">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="294" y="702" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="n" type="Double" size="8" expression="CEIL(LOG([countNonNull])/LOG(2) + 1)&#xA;" />
+                <FormulaField field="h" type="Double" size="8" expression="([max] - [min])/[n]" />
+                <FormulaField field="scale" type="Double" size="8" expression="POW(10, FLOOR(LOG([h]/10)/LOG(10)))" />
+                <FormulaField field="err" type="Double" size="8" expression="10/([h])*[scale]&#xA;" />
+                <FormulaField field="scale2" type="Double" size="8" expression="IF [err] &lt;= 0.15 THEN 10 ELSEIF [err] &lt;= 0.35 THEN 5 ELSEIF [err] &lt;= 0.75 THEN 2 ELSE 1 ENDIF" />
+                <FormulaField field="h" type="Double" size="8" expression="[scale]*[scale2]*10" />
+                <FormulaField field="extent1" type="Double" size="8" expression="[h]*FLOOR([min]/[h])" />
+                <FormulaField field="extent2" type="Double" size="8" expression="[h] + [h]*FLOOR([max]/[h])" />
+                <FormulaField field="buckets" type="Double" size="8" expression="([extent2] - [extent1])/[h]" />
+                <FormulaField field="step" type="Double" size="8" expression="IF ([buckets] &gt; [n]) THEN Round([buckets]/[n], 1) ELSE 1 ENDIF" />
+                <FormulaField field="pad" type="Int64" size="8" expression="Mod([buckets], [step])" />
+                <FormulaField field="extent1n" type="Double" size="8" expression="[extent1] + [h] * FLOOR([PAD]/2)" />
+                <FormulaField field="extent2n" type="Double" size="8" expression="[extent2] - [h] * CEIL([pad]/2) + [h]*0.5" />
+                <FormulaField field="binsize" type="Double" size="8" expression="[h]*[step]" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="2">
+              <Name />
+              <DefaultAnnotationText>n=CEIL(LOG([countNonNull])/LOG(2) + 1)
+
+h=([max] - [min])/[n]
+scale=POW(10, FLOOR(LOG([h]/10)/LOG(10)))
+...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Name" size="10" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="min" source="(Multiple Sources)" type="Double" />
+                <Field name="max" source="(Multiple Sources)" type="Double" />
+                <Field name="count" source="Summarize: Count - Value" type="Int64" />
+                <Field name="countNonNull" source="Summarize: CountNonNull - Value" type="Int64" />
+                <Field name="n" source="Formula: CEIL(LOG([countNonNull])/LOG(2) + 1)&#xA;" type="Double" />
+                <Field name="h" source="Formula: [scale]*[scale2]*10" type="Double" />
+                <Field name="scale" source="Formula: POW(10, FLOOR(LOG([h]/10)/LOG(10)))" type="Double" />
+                <Field name="err" source="Formula: 10/([h])*[scale]&#xA;" type="Double" />
+                <Field name="scale2" source="Formula: IF [err] &lt;= 0.15 THEN 10 ELSEIF [err] &lt;= 0.35 THEN 5 ELSEIF [err] &lt;= 0.75 THEN 2 ELSE 1 ENDIF" type="Double" />
+                <Field name="extent1" source="Formula: [h]*FLOOR([min]/[h])" type="Double" />
+                <Field name="extent2" source="Formula: [h] + [h]*FLOOR([max]/[h])" type="Double" />
+                <Field name="buckets" source="Formula: ([extent2] - [extent1])/[h]" type="Double" />
+                <Field name="step" source="Formula: IF ([buckets] &gt; [n]) THEN Round([buckets]/[n], 1) ELSE 1 ENDIF" type="Double" />
+                <Field name="pad" source="Formula: Mod([buckets], [step])" type="Int64" />
+                <Field name="extent1n" source="Formula: [extent1] + [h] * FLOOR([PAD]/2)" type="Double" />
+                <Field name="extent2n" source="Formula: [extent2] - [h] * CEIL([pad]/2) + [h]*0.5" type="Double" />
+                <Field name="binsize" source="Formula: [h]*[step]" type="Double" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="Name" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="88">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="210" y="894" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="bin" type="String" size="64" expression="CEIL(([Value] - [extent1n] + 0.01*[binsize])/[binsize])&#xA;" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText><![CDATA[bin=CEIL(([Value] - [extent1n] + 0.01*[binsize])/[binsize])
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+                <Field name="Name" size="10" source="Transpose:" type="String" />
+                <Field name="Value" source="(Multiple Sources)" type="Double" />
+                <Field name="count" source="Summarize: Count - Value" type="Int64" />
+                <Field name="extent1n" source="Formula: [extent1] + [h] * FLOOR([PAD]/2)" type="Double" />
+                <Field name="extent2n" source="Formula: [extent2] - [h] * CEIL([pad]/2) + [h]*0.5" type="Double" />
+                <Field name="binsize" source="Formula: [h]*[step]" type="Double" />
+                <Field name="bin" size="64" source="Formula: CEIL(([Value] - [extent1n] + 0.01*[binsize])/[binsize])&#xA;" type="String" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="Name" order="" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="91">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="222" y="990" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Field>bin</Field>
+                <Operator>IsNotNull</Operator>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>!IsNull([bin])</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="True">
+              <RecordInfo>
+                <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+                <Field name="Name" size="10" source="Transpose:" type="String" />
+                <Field name="Value" source="(Multiple Sources)" type="Double" />
+                <Field name="count" source="Summarize: Count - Value" type="Int64" />
+                <Field name="extent1n" source="Formula: [extent1] + [h] * FLOOR([PAD]/2)" type="Double" />
+                <Field name="extent2n" source="Formula: [extent2] - [h] * CEIL([pad]/2) + [h]*0.5" type="Double" />
+                <Field name="binsize" source="Formula: [h]*[step]" type="Double" />
+                <Field name="bin" size="64" source="Formula: CEIL(([Value] - [extent1n] + 0.01*[binsize])/[binsize])&#xA;" type="String" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="Name" order="" />
+              </SortInfo>
+            </MetaInfo>
+            <MetaInfo connection="False">
+              <RecordInfo>
+                <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+                <Field name="Name" size="10" source="Transpose:" type="String" />
+                <Field name="Value" source="(Multiple Sources)" type="Double" />
+                <Field name="count" source="Summarize: Count - Value" type="Int64" />
+                <Field name="extent1n" source="Formula: [extent1] + [h] * FLOOR([PAD]/2)" type="Double" />
+                <Field name="extent2n" source="Formula: [extent2] - [h] * CEIL([pad]/2) + [h]*0.5" type="Double" />
+                <Field name="binsize" source="Formula: [h]*[step]" type="Double" />
+                <Field name="bin" size="64" source="Formula: CEIL(([Value] - [extent1n] + 0.01*[binsize])/[binsize])&#xA;" type="String" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="Name" order="" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="93">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="150" y="1470" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="10" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="value" size="2147483647" source="Summarize: Concat - out" type="V_String" />
+                <Field name="binsize" source="Formula: [h]*[step]" type="Double" />
+                <Field name="extent1n" source="Formula: [extent1] + [h] * FLOOR([PAD]/2)" type="Double" />
+                <Field name="extent2n" source="Formula: [extent2] - [h] * CEIL([pad]/2) + [h]*0.5" type="Double" />
+                <Field name="summary" size="2147483647" source="Summarize: Concat - json" type="V_String" />
+                <Field name="custom" size="2147483647" source="Summarize: Concat - json" type="V_String" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="key" order="" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="100">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="126" y="642" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="Name" action="GroupBy" rename="key" />
+                <SummarizeField field="Value" action="Count" rename="Count" />
+                <SummarizeField field="Value" action="CountNonNull" rename="Valid" />
+                <SummarizeField field="Value" action="CountDistinctNonNull" rename="Unique" />
+                <SummarizeField field="Value" action="Avg" rename="Mean" />
+                <SummarizeField field="Value" action="StdDev" rename="Stdev" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="10" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="Count" source="Summarize: Count - Value" type="Int64" />
+                <Field name="Valid" source="Summarize: CountNonNull - Value" type="Int64" />
+                <Field name="Unique" source="Summarize: CountDistinctNonNull - Value" type="Int64" />
+                <Field name="Mean" source="Summarize: Avg - Value" type="Double" />
+                <Field name="Stdev" source="Summarize: StdDev - Value" type="Double" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="Name" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="101">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+            <Position x="126" y="750" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ErrorWarn>Ignore</ErrorWarn>
+              <KeyFields>
+                <Field field="key" />
+              </KeyFields>
+              <DataFields>
+                <Field field="key" selected="False" />
+                <Field field="Count" selected="True" />
+                <Field field="Valid" selected="True" />
+                <Field field="Unique" selected="True" />
+                <Field field="Mean" selected="True" />
+                <Field field="Stdev" selected="True" />
+                <Field field="*Unknown" selected="True" />
+              </DataFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="10" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="Name" size="6" source="Transpose:" type="String" />
+                <Field name="Value" source="Summarize: (Multiple Sources)" type="Double" />
+              </RecordInfo>
+              <SortInfo>
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+        </Node>
+        <Node ToolID="102">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="126" y="834" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="json" type="String" size="64" expression="'&quot;' + [Name] + '&quot;: ' + ToString([Value])" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText />
+              <DefaultAnnotationText>json='"' + [Name] + '": ' + ToString([Value])</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="10" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="Name" size="6" source="Transpose:" type="String" />
+                <Field name="Value" source="Summarize: (Multiple Sources)" type="Double" />
+                <Field name="json" size="64" source="Formula: '&quot;' + [Name] + '&quot;: ' + ToString([Value])" type="String" />
+              </RecordInfo>
+              <SortInfo>
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="103">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="138" y="990" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="key" action="GroupBy" rename="key" />
+                <SummarizeField field="json" action="Concat" rename="custom">
+                  <Concat_Start>{</Concat_Start>
+                  <Separator>,</Separator>
+                  <Concat_End>}</Concat_End>
+                </SummarizeField>
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="10" source="Summarize: GroupBy - key" type="String" />
+                <Field name="custom" size="2147483647" source="Summarize: Concat - json" type="V_String" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="key" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="104">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.JoinMultiple.JoinMultiple">
+            <Position x="150" y="1374" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <JoinByRecPos value="False" />
+              <JoinFields>
+                <JoinInfo connection="#1">
+                  <Field field="key" />
+                </JoinInfo>
+                <JoinInfo connection="#2">
+                  <Field field="key" />
+                </JoinInfo>
+                <JoinInfo connection="#3">
+                  <Field field="key" />
+                </JoinInfo>
+              </JoinFields>
+              <CartesianMode>Error</CartesianMode>
+              <OutputJoinOnly value="True" />
+              <SelectConfiguration>
+                <Configuration outputConnection="Output">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Input_#2_key" selected="False" rename="Input_#2_key" />
+                    <SelectField field="Input_#3_key" selected="False" rename="Input_#3_key" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="10" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="value" size="2147483647" source="Summarize: Concat - out" type="V_String" />
+                <Field name="binsize" source="Formula: [h]*[step]" type="Double" />
+                <Field name="extent1n" source="Formula: [extent1] + [h] * FLOOR([PAD]/2)" type="Double" />
+                <Field name="extent2n" source="Formula: [extent2] - [h] * CEIL([pad]/2) + [h]*0.5" type="Double" />
+                <Field name="summary" size="2147483647" source="Summarize: Concat - json" type="V_String" />
+                <Field name="custom" size="2147483647" source="Summarize: Concat - json" type="V_String" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="key" order="" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoinMultiple" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="70">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="486" y="295" width="285" height="1244" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>String</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="10" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="26">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicSelect.DynamicSelect">
+            <Position x="591.9999" y="323" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>FieldTypes</Mode>
+              <FieldTypes>String,WString,V_String,V_WString,Date,Time,DateTime</FieldTypes>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Store_ID" size="4" source="TextInput:" type="String" />
+                <Field name="Store_Name" size="16" source="TextInput:" type="V_String" />
+                <Field name="Week_Ending" source="TextInput:" type="Date" />
+                <Field name="DMA_Name" size="44" source="TextInput:" type="V_String" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="RecordID" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDynamicSelect" />
+        </Node>
+        <Node ToolID="27">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+            <Position x="592.0001" y="515" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ErrorWarn>Ignore</ErrorWarn>
+              <KeyFields>
+                <Field field="RecordID" />
+              </KeyFields>
+              <DataFields>
+                <Field field="RecordID" selected="False" />
+                <Field field="Store_ID" selected="True" />
+                <Field field="Store_Name" selected="True" />
+                <Field field="Week_Ending" selected="True" />
+                <Field field="DMA_Name" selected="True" />
+                <Field field="*Unknown" selected="True" />
+              </DataFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Melt Data</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="True" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+                <Field name="Name" size="11" source="Transpose:" type="String" />
+                <Field name="Value" size="44" source="TextInput:" type="V_String" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="RecordID" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+        </Node>
+        <Node ToolID="28">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+            <Position x="592.0001" y="419" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <StartValue>1</StartValue>
+              <FieldName>RecordID</FieldName>
+              <FieldType>Int32</FieldType>
+              <Position>0</Position>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+                <Field name="Store_ID" size="4" source="TextInput:" type="String" />
+                <Field name="Store_Name" size="16" source="TextInput:" type="V_String" />
+                <Field name="Week_Ending" source="TextInput:" type="Date" />
+                <Field name="DMA_Name" size="44" source="TextInput:" type="V_String" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="RecordID" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+        </Node>
+        <Node ToolID="29">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="510" y="1098" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\ramnath\AppData\Local\Temp\Engine_1940_b4c02d10172c43fc9ca9708ef49ab38c_\Engine_2028_e76c2cf0cd6541dcae6019ad21105410_.yxdb</TempFile>
+              <Layout>
+                <View1>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="30">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="592" y="611" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="Name" action="GroupBy" rename="Name" />
+                <SummarizeField field="Value" action="GroupBy" rename="Value" />
+                <SummarizeField field="Value" action="Count" rename="Count" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Name" size="11" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="Value" size="44" source="Summarize: GroupBy - Value" type="V_String" />
+                <Field name="Count" source="Summarize: Count - Value" type="Int64" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="Name" order="Asc" />
+                <Field field="Value" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="32">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="594" y="774" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="Value" type="V_String" size="44" expression="EscapeXMLMetacharacters([Value])" />
+                <FormulaField field="out" type="V_String" size="100000" expression="'{&quot;x&quot;: &quot;' + [Value] + '&quot;, &quot;y&quot;: ' + ToString([Count]) + &quot;}&quot;" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="2">
+              <Name />
+              <DefaultAnnotationText>Value=EscapeXMLMetacharacters([Value])
+out='{"x": "' + [Value] + '", "y": ' + ToString([Count]) + "}"</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Name" size="11" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="Value" size="44" source="Formula: EscapeXMLMetacharacters([Value])" type="V_String" />
+                <Field name="Count" source="Summarize: Count - Value" type="Int64" />
+                <Field name="out" size="100000" source="Formula: '{&quot;x&quot;: &quot;' + [Value] + '&quot;, &quot;y&quot;: ' + ToString([Count]) + &quot;}&quot;" type="V_String" />
+              </RecordInfo>
+              <SortInfo locale="0">
+                <Field field="Name" order="Ascending" />
+                <Field field="Count" order="Descending" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="33">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="594" y="942" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="Name" action="GroupBy" rename="key" />
+                <SummarizeField field="out" action="Concat" rename="value">
+                  <Concat_Start>[</Concat_Start>
+                  <Separator>,</Separator>
+                  <Concat_End>]</Concat_End>
+                </SummarizeField>
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="11" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="value" size="2147483647" source="Summarize: Concat - out" type="V_String" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="Name" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="46">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="702" y="606" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="Name" action="GroupBy" rename="Name" />
+                <SummarizeField field="Value" action="Count" rename="Count" />
+                <SummarizeField field="Value" action="CountNonNull" rename="Valid" />
+                <SummarizeField field="Value" action="CountDistinctNonNull" rename="Unique" />
+                <SummarizeField field="Value" action="CountBlank" rename="Blank" />
+                <SummarizeField field="Value" action="Longest" rename="Longest" />
+                <SummarizeField field="Value" action="Shortest" rename="Shortest" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Name" size="11" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="Count" source="Summarize: Count - Value" type="Int64" />
+                <Field name="Valid" source="Summarize: CountNonNull - Value" type="Int64" />
+                <Field name="Unique" source="Summarize: CountDistinctNonNull - Value" type="Int64" />
+                <Field name="Blank" source="Summarize: CountBlank - Value" type="Int64" />
+                <Field name="Longest" size="44" source="Summarize: Longest - Value" type="V_String" />
+                <Field name="Shortest" size="44" source="Summarize: Shortest - Value" type="V_String" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="Name" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="48">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+            <Position x="702" y="702" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ErrorWarn>Ignore</ErrorWarn>
+              <KeyFields>
+                <Field field="Name" />
+              </KeyFields>
+              <DataFields>
+                <Field field="Name" selected="False" />
+                <Field field="Count" selected="True" />
+                <Field field="Valid" selected="True" />
+                <Field field="Unique" selected="True" />
+                <Field field="Blank" selected="True" />
+                <Field field="Longest" selected="True" />
+                <Field field="Shortest" selected="True" />
+                <Field field="*Unknown" selected="True" />
+              </DataFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Name" size="11" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="Name2" size="8" source="Transpose:" type="String" />
+                <Field name="Value" size="44" source="Summarize: (Multiple Sources)" type="V_String" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="Name" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+        </Node>
+        <Node ToolID="49">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="702" y="894" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="json" type="V_String" size="12800" expression="'&quot;' + [Name2] + '&quot; : &quot;' + EscapeXMLMetacharacters(ToString([Value]) )+ '&quot;'" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="2">
+              <Name />
+              <DefaultAnnotationText>json='"' + [Name2] + '" : "' + EscapeXMLMetacharacters(ToStri...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Name" size="11" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="Name2" size="8" source="Transpose:" type="String" />
+                <Field name="Value" size="44" source="Summarize: (Multiple Sources)" type="V_String" />
+                <Field name="json" size="12800" source="Formula: '&quot;' + [Name2] + '&quot; : &quot;' + EscapeXMLMetacharacters(ToString([Value]) )+ '&quot;'" type="V_String" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="Name" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="50">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="702" y="990" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="Name" action="GroupBy" rename="key" />
+                <SummarizeField field="json" action="Concat" rename="custom">
+                  <Concat_Start>{</Concat_Start>
+                  <Separator>,</Separator>
+                  <Concat_End>}</Concat_End>
+                </SummarizeField>
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="11" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="custom" size="2147483647" source="Summarize: Concat - json" type="V_String" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="Name" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="53">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+            <Position x="642" y="1278" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ErrorWarn>Ignore</ErrorWarn>
+              <KeyFields>
+                <Field field="key" />
+              </KeyFields>
+              <DataFields>
+                <Field field="key" selected="False" />
+                <Field field="value" selected="True" />
+                <Field field="custom" selected="True" />
+                <Field field="summary" selected="True" />
+                <Field field="type" selected="True" />
+                <Field field="*Unknown" selected="True" />
+              </DataFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="11" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="Name" size="7" source="Transpose:" type="String" />
+                <Field name="Value" size="2147483647" source="(Multiple Sources)" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+        </Node>
+        <Node ToolID="54">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="642" y="1374" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="json" type="V_String" size="100000000" expression="'&quot;' + [Name] + '&quot; : ' + [Value]" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="2">
+              <Name />
+              <DefaultAnnotationText>json='"' + [Name] + '" : ' + [Value]</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="11" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="Name" size="7" source="Transpose:" type="String" />
+                <Field name="Value" size="2147483647" source="(Multiple Sources)" type="V_String" />
+                <Field name="json" size="100000000" source="Formula: '&quot;' + [Name] + '&quot; : ' + [Value]" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="55">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="642" y="1470" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="key" action="GroupBy" rename="key" />
+                <SummarizeField field="json" action="Concat" rename="json">
+                  <Concat_Start />
+                  <Separator>,</Separator>
+                  <Concat_End />
+                </SummarizeField>
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="11" source="Summarize: GroupBy - key" type="String" />
+                <Field name="json" size="2147483647" source="Summarize: Concat - json" type="V_String" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="key" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="62">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="592" y="695" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="0">
+                <Field field="Name" order="Ascending" />
+                <Field field="Count" order="Descending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="2">
+              <Name />
+              <DefaultAnnotationText>Name - Ascending
+Count - Descending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Name" size="11" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="Value" size="44" source="Summarize: GroupBy - Value" type="V_String" />
+                <Field name="Count" source="Summarize: Count - Value" type="Int64" />
+              </RecordInfo>
+              <SortInfo locale="0">
+                <Field field="Name" order="Ascending" />
+                <Field field="Count" order="Descending" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+        <Node ToolID="66">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sample.Sample">
+            <Position x="496" y="779" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <GroupFields orderChanged="False">
+                <Field name="Name" />
+              </GroupFields>
+              <Mode>First</Mode>
+              <N>6</N>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>First 6</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Name" size="11" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="Value" size="44" source="Summarize: GroupBy - Value" type="V_String" />
+                <Field name="Count" source="Summarize: Count - Value" type="Int64" />
+              </RecordInfo>
+              <SortInfo locale="0">
+                <Field field="Name" order="Ascending" />
+                <Field field="Count" order="Descending" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSample" />
+        </Node>
+        <Node ToolID="67">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="496" y="851" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="json" type="V_String" size="12800" expression="'&quot;' + [Value] + '&quot; : ' + ToString([Count])" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>json='"' + [Value] + '" : ' + ToString([Count])</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Name" size="11" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="Value" size="44" source="Summarize: GroupBy - Value" type="V_String" />
+                <Field name="Count" source="Summarize: Count - Value" type="Int64" />
+                <Field name="json" size="12800" source="Formula: '&quot;' + [Value] + '&quot; : ' + ToString([Count])" type="V_String" />
+              </RecordInfo>
+              <SortInfo locale="0">
+                <Field field="Name" order="Ascending" />
+                <Field field="Count" order="Descending" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="68">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="496" y="923" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="Name" action="GroupBy" rename="key" />
+                <SummarizeField field="json" action="Concat" rename="summary">
+                  <Concat_Start>{</Concat_Start>
+                  <Separator>,</Separator>
+                  <Concat_End>}</Concat_End>
+                </SummarizeField>
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="11" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="summary" size="2147483647" source="Summarize: Concat - json" type="V_String" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="Name" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="69">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.JoinMultiple.JoinMultiple">
+            <Position x="642" y="1086" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <JoinByRecPos value="False" />
+              <JoinFields>
+                <JoinInfo connection="#1">
+                  <Field field="key" />
+                </JoinInfo>
+                <JoinInfo connection="#2">
+                  <Field field="key" />
+                </JoinInfo>
+                <JoinInfo connection="#3">
+                  <Field field="key" />
+                </JoinInfo>
+              </JoinFields>
+              <CartesianMode>Error</CartesianMode>
+              <OutputJoinOnly value="False" />
+              <SelectConfiguration>
+                <Configuration outputConnection="Output">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Input_#2_key" selected="False" rename="Input_#2_key" />
+                    <SelectField field="Input_#3_key" selected="False" rename="Input_#3_key" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="11" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="value" size="2147483647" source="Summarize: Concat - out" type="V_String" />
+                <Field name="custom" size="2147483647" source="Summarize: Concat - json" type="V_String" />
+                <Field name="summary" size="2147483647" source="Summarize: Concat - json" type="V_String" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="key" order="" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoinMultiple" />
+        </Node>
+        <Node ToolID="74">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+            <Position x="702" y="1110" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <NumRows value="2" />
+              <Fields>
+                <Field name="type" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>"string"</c>
+                </r>
+              </Data>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="type" size="8" source="TextInput:" type="String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+        </Node>
+        <Node ToolID="75">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
+            <Position x="654" y="1182" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <CartesianMode>Error</CartesianMode>
+              <SelectConfiguration>
+                <Configuration outputConnection="Output">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="key" size="11" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="value" size="2147483647" source="Summarize: Concat - out" type="V_String" />
+                <Field name="custom" size="2147483647" source="Summarize: Concat - json" type="V_String" />
+                <Field name="summary" size="2147483647" source="Summarize: Concat - json" type="V_String" />
+                <Field name="type" size="8" source="TextInput:" type="String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+        </Node>
+        <Node ToolID="121">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sample.Sample">
+            <Position x="594" y="870" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <GroupFields orderChanged="False">
+                <Field name="Name" />
+              </GroupFields>
+              <Mode>First</Mode>
+              <N>1000</N>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>First 1000</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Name" size="11" source="Summarize: GroupBy - Name" type="String" />
+                <Field name="Value" size="44" source="Formula: EscapeXMLMetacharacters([Value])" type="V_String" />
+                <Field name="Count" source="Summarize: Count - Value" type="Int64" />
+                <Field name="out" size="100000" source="Formula: '{&quot;x&quot;: &quot;' + [Value] + '&quot;, &quot;y&quot;: ' + ToString([Count]) + &quot;}&quot;" type="V_String" />
+              </RecordInfo>
+              <SortInfo locale="0">
+                <Field field="Name" order="Ascending" />
+                <Field field="Count" order="Descending" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSample" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="26" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="120" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="56" Connection="Output" />
+      <Destination ToolID="58" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="58" Connection="Output" />
+      <Destination ToolID="59" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="59" Connection="Output" />
+      <Destination ToolID="81" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="78" Connection="Output" />
+      <Destination ToolID="81" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="81" Connection="Output" />
+      <Destination ToolID="108" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="107" Connection="Output" />
+      <Destination ToolID="108" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="80" Connection="Output" />
+      <Destination ToolID="82" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="82" Connection="Output" />
+      <Destination ToolID="112" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="111" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="105" Connection="Output" />
+      <Destination ToolID="107" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="108" Connection="Output" />
+      <Destination ToolID="80" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="117" Connection="Output" />
+      <Destination ToolID="78" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="120" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="16" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="87" Connection="Output" />
+      <Destination ToolID="16" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="34" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="100" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="87" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Join" />
+      <Destination ToolID="88" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="21" Connection="Output" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="104" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="40" Connection="Output" />
+      <Destination ToolID="104" Connection="Input" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="103" Connection="Output" />
+      <Destination ToolID="104" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="34" Connection="Output" />
+      <Destination ToolID="38" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="38" Connection="Output" />
+      <Destination ToolID="39" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="39" Connection="Output" />
+      <Destination ToolID="40" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="43" Connection="Output" />
+      <Destination ToolID="44" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="44" Connection="Output" />
+      <Destination ToolID="45" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="45" Connection="Output" />
+      <Destination ToolID="56" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="55" Connection="Output" />
+      <Destination ToolID="56" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="72" Connection="Output" />
+      <Destination ToolID="43" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="73" Connection="Output" />
+      <Destination ToolID="72" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="93" Connection="Output" />
+      <Destination ToolID="72" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="88" Connection="Output" />
+      <Destination ToolID="91" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="91" Connection="True" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="100" Connection="Output" />
+      <Destination ToolID="101" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="101" Connection="Output" />
+      <Destination ToolID="102" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="102" Connection="Output" />
+      <Destination ToolID="103" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="104" Connection="Output" />
+      <Destination ToolID="93" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="26" Connection="Output" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="Output" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="Output" />
+      <Destination ToolID="46" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="Output" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="Output" />
+      <Destination ToolID="62" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="32" Connection="Output" />
+      <Destination ToolID="121" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="69" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="50" Connection="Output" />
+      <Destination ToolID="69" Connection="Input" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="68" Connection="Output" />
+      <Destination ToolID="69" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="46" Connection="Output" />
+      <Destination ToolID="48" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="48" Connection="Output" />
+      <Destination ToolID="49" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="49" Connection="Output" />
+      <Destination ToolID="50" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="53" Connection="Output" />
+      <Destination ToolID="54" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="54" Connection="Output" />
+      <Destination ToolID="55" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="62" Connection="Output" />
+      <Destination ToolID="32" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="62" Connection="Output" />
+      <Destination ToolID="66" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="66" Connection="Output" />
+      <Destination ToolID="67" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="67" Connection="Output" />
+      <Destination ToolID="68" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="69" Connection="Output" />
+      <Destination ToolID="75" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="74" Connection="Output" />
+      <Destination ToolID="75" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="75" Connection="Output" />
+      <Destination ToolID="53" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="121" Connection="Output" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Vertical</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>User</Namespace>
+        <Name>LibPath</Name>
+        <Value>C:\Program Files\Alteryx\bin\public_html\Fiddle2\</Value>
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (111)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (112)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>IFS_noMiss</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (110)</Name>
+          <ToolId value="110" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Input Data (97)</Description>
+              <Name>Input Data (97)</Name>
+              <ToolId value="111" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (112)</Description>
+              <Name>Macro Output (112)</Name>
+              <ToolId value="112" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="38" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="111" Selected="True" />
+        <Tool ToolId="112" Selected="True" />
+        <Tool ToolId="29" Selected="False" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>

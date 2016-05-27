@@ -1,5 +1,6 @@
 # Inputs ----
 options(alteryx.wd = '%Engine.WorkflowDirectory%')
+library(AlteryxRhelper)
 library(AlteryxSim)
 config <- list(
   dependent = listInput('%Question.dependent%', "R_G"),
@@ -20,19 +21,19 @@ importances <- saImportance(inputs$data, config$independent, config$dependent)
 for (factor in names(importances)) {
 	importances[,factor] <- importances[,factor]
 }
-write.Alteryx(importances, 2)
+write.Alteryx2(importances, 2)
 
 # Output 3: Pearson's R
 the.Rs <- saR(inputs$data, config$independent, config$dependent)
 for (factor in names(the.Rs)) {
 	the.Rs[,factor] <- as.character(the.Rs[,factor])
 }
-write.Alteryx(the.Rs, 3)
+write.Alteryx2(the.Rs, 3)
 
 # Output 4: Partial Correlation Coefficients
 the.prs <- as.data.frame(saPr2(inputs$data[,c(config$independent, config$dependent)]))
 for (factor in names(the.prs)) {
 	the.prs[,factor] <- as.character(the.prs[,factor])
 }
-write.Alteryx(the.prs, 4)
+write.Alteryx2(the.prs, 4)
 
