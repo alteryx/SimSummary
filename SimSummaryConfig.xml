@@ -15,7 +15,7 @@
     <MetaInfo>
       <NameIsFileName>False</NameIsFileName>
       <Name>Simulation Summary</Name>
-      <Description>Simulation Summary</Description>
+      <Description>Simulation Summary contains two main components. Firstly, it allows for a visualization of simulated distributions and results from operations on those distributions. Secondly, it allows for visual and quantitative analyses of input vs output variables.</Description>
       <ToolInDb>False</ToolInDb>
       <CategoryName>Prescriptive</CategoryName>
       <SearchTags>simulation</SearchTags>
