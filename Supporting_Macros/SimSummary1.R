@@ -2,8 +2,8 @@
 options(alteryx.wd = '%Engine.WorkflowDirectory%')
 library(AlteryxSim)
 config <- list(
-  dependent = listInput('%Question.dependent%', "R_G"),
-  independent = listInput('%Question.independent%', c("SLG", "OPS"))
+  dependent = listInput('%Question.dependent%', "asdfasdf__R_G__asdfasdf"),
+  independent = listInput('%Question.independent%', c("asdfasdf__SLG__asdfasdf", "asdfasdf__OPS__asdfasdf"))
 )
 inputs <- list(
   data = read.Alteryx("#1", mode="data.frame")
@@ -35,4 +35,3 @@ for (factor in names(the.prs)) {
 	the.prs[,factor] <- as.character(the.prs[,factor])
 }
 write.Alteryx(the.prs, 4)
-

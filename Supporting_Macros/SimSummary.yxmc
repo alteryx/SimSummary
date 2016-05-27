@@ -81,7 +81,7 @@
     </Node>
     <Node ToolID="300">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="55.99998" y="54" width="403.5177" height="263" />
+        <Position x="55.99998" y="54" width="394" height="261" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -99,7 +99,7 @@
       <ChildNodes>
         <Node ToolID="301">
           <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-            <Position x="65.99998" y="83" width="188.8454" height="224" />
+            <Position x="65.99998" y="82" width="178.6174" height="223" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -117,7 +117,7 @@
           <ChildNodes>
             <Node ToolID="280">
               <GuiSettings Plugin="AlteryxGuiToolkit.Questions.DropDownListBox.ListBox">
-                <Position x="75.99998" y="122" width="59" height="59" />
+                <Position x="75.99998" y="120" width="59" height="59" />
               </GuiSettings>
               <Properties>
                 <Configuration />
@@ -131,7 +131,7 @@
             </Node>
             <Node ToolID="281">
               <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-                <Position x="77.99998" y="238" width="59" height="59" />
+                <Position x="77.99998" y="236" width="59" height="59" />
               </GuiSettings>
               <Properties>
                 <Configuration />
@@ -144,7 +144,7 @@
             </Node>
             <Node ToolID="304">
               <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-                <Position x="114" y="112" width="100" height="40" />
+                <Position x="114" y="110" width="100" height="40" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -166,7 +166,7 @@
         </Node>
         <Node ToolID="303">
           <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-            <Position x="272" y="83" width="177.5177" height="224" />
+            <Position x="272" y="82" width="168" height="223" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -184,7 +184,7 @@
           <ChildNodes>
             <Node ToolID="261">
               <GuiSettings Plugin="AlteryxGuiToolkit.Questions.DropDownListBox.ListBox">
-                <Position x="283" y="125" width="59" height="59" />
+                <Position x="283" y="123" width="59" height="59" />
               </GuiSettings>
               <Properties>
                 <Configuration />
@@ -198,7 +198,7 @@
             </Node>
             <Node ToolID="254">
               <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-                <Position x="282" y="238" width="59" height="59" />
+                <Position x="282" y="236" width="59" height="59" />
               </GuiSettings>
               <Properties>
                 <Configuration />
@@ -211,7 +211,7 @@
             </Node>
             <Node ToolID="305">
               <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-                <Position x="330" y="112" width="100" height="40" />
+                <Position x="330" y="110" width="100" height="40" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -235,7 +235,7 @@
     </Node>
     <Node ToolID="372">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="54" y="328" width="827" height="726" />
+        <Position x="54" y="327" width="827" height="725" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -253,7 +253,7 @@
       <ChildNodes>
         <Node ToolID="270">
           <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
-            <Position x="64" y="561.2001" />
+            <Position x="64" y="559.2001" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -266,9 +266,9 @@
                 <Configuration>
                   <NumRows value="1000" />
                   <Fields>
-                    <Field name="SLG" />
-                    <Field name="OPS" />
-                    <Field name="R_G" />
+                    <Field name="asdfasdf__SLG__asdfasdf" />
+                    <Field name="asdfasdf__OPS__asdfasdf" />
+                    <Field name="asdfasdf__R_G__asdfasdf" />
                   </Fields>
                   <Data>
                     <r>
@@ -5283,9 +5283,9 @@
             </Annotation>
             <MetaInfo connection="Output">
               <RecordInfo>
-                <Field name="SLG" source="TextInput:" type="Double" />
-                <Field name="OPS" source="TextInput:" type="Double" />
-                <Field name="R_G" source="TextInput:" type="Double" />
+                <Field name="asdfasdf__SLG__asdfasdf" source="TextInput:" type="Double" />
+                <Field name="asdfasdf__OPS__asdfasdf" source="TextInput:" type="Double" />
+                <Field name="asdfasdf__R_G__asdfasdf" source="TextInput:" type="Double" />
               </RecordInfo>
             </MetaInfo>
           </Properties>
@@ -5293,7 +5293,7 @@
         </Node>
         <Node ToolID="279">
           <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-            <Position x="148" y="357" />
+            <Position x="148" y="355" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -5311,7 +5311,7 @@
         </Node>
         <Node ToolID="384">
           <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-            <Position x="269" y="452" width="598" height="224" />
+            <Position x="269" y="451" width="598" height="223" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -5329,7 +5329,7 @@
           <ChildNodes>
             <Node ToolID="3">
               <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-                <Position x="294" y="496" />
+                <Position x="294" y="494" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5347,36 +5347,17 @@
                 </Annotation>
                 <MetaInfo connection="Output">
                   <RecordInfo>
-                    <Field name="R_G" source="TextInput:" type="Double" />
+                    <Field name="asdfasdf__SLG__asdfasdf" source="TextInput:" type="Double" />
+                    <Field name="asdfasdf__OPS__asdfasdf" source="TextInput:" type="Double" />
+                    <Field name="asdfasdf__R_G__asdfasdf" source="TextInput:" type="Double" />
                   </RecordInfo>
                 </MetaInfo>
               </Properties>
               <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
             </Node>
-            <Node ToolID="275">
-              <GuiSettings>
-                <Position x="507" y="529" />
-              </GuiSettings>
-              <Properties>
-                <Configuration />
-                <Annotation DisplayMode="0">
-                  <Name />
-                  <DefaultAnnotationText />
-                  <Left value="False" />
-                </Annotation>
-                <MetaInfo connection="Interactive Output">
-                  <RecordInfo>
-                    <Field name="x" size="2147483647" source="Formula: Replace([x], &quot;_DATA_&quot;, [data])" type="V_String" />
-                    <Field name="data" size="2147483647" source="Summarize: Concat - json" type="V_String" />
-                    <Field name="LIBPATH" size="10000" source="Formula: TrimRight([Field_1]) + &quot;\assets\&quot;" type="V_String" />
-                  </RecordInfo>
-                </MetaInfo>
-              </Properties>
-              <EngineSettings Macro="Predictive Tools\Supporting_Macros\IFS.yxmc" />
-            </Node>
             <Node ToolID="277">
               <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-                <Position x="783" y="529" />
+                <Position x="783" y="527" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5394,7 +5375,7 @@
             </Node>
             <Node ToolID="278">
               <GuiSettings Plugin="PortfolioPluginsGui.ComposerText.PortfolioComposerText">
-                <Position x="603" y="529" />
+                <Position x="603" y="527" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5430,7 +5411,7 @@ No Text Styling</DefaultAnnotationText>
             </Node>
             <Node ToolID="283">
               <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-                <Position x="294" y="592" />
+                <Position x="294" y="590" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5447,8 +5428,9 @@ No Text Styling</DefaultAnnotationText>
                 </Annotation>
                 <MetaInfo connection="Output">
                   <RecordInfo>
-                    <Field name="SLG" source="TextInput:" type="Double" />
-                    <Field name="OPS" source="TextInput:" type="Double" />
+                    <Field name="asdfasdf__SLG__asdfasdf" source="TextInput:" type="Double" />
+                    <Field name="asdfasdf__OPS__asdfasdf" source="TextInput:" type="Double" />
+                    <Field name="asdfasdf__R_G__asdfasdf" source="TextInput:" type="Double" />
                   </RecordInfo>
                 </MetaInfo>
               </Properties>
@@ -5456,7 +5438,7 @@ No Text Styling</DefaultAnnotationText>
             </Node>
             <Node ToolID="373">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-                <Position x="411" y="528.8" />
+                <Position x="411" y="526.8" />
               </GuiSettings>
               <Properties>
                 <Configuration joinByRecordPos="True">
@@ -5476,30 +5458,60 @@ No Text Styling</DefaultAnnotationText>
                 </Annotation>
                 <MetaInfo connection="Left">
                   <RecordInfo>
-                    <Field name="R_G" source="TextInput:" type="Double" />
+                    <Field name="asdfasdf__SLG__asdfasdf" source="TextInput:" type="Double" />
+                    <Field name="asdfasdf__OPS__asdfasdf" source="TextInput:" type="Double" />
+                    <Field name="asdfasdf__R_G__asdfasdf" source="TextInput:" type="Double" />
                   </RecordInfo>
                 </MetaInfo>
                 <MetaInfo connection="Join">
                   <RecordInfo>
-                    <Field name="R_G" source="TextInput:" type="Double" />
-                    <Field name="SLG" source="TextInput:" type="Double" />
-                    <Field name="OPS" source="TextInput:" type="Double" />
+                    <Field name="asdfasdf__SLG__asdfasdf" source="TextInput:" type="Double" />
+                    <Field name="asdfasdf__OPS__asdfasdf" source="TextInput:" type="Double" />
+                    <Field name="asdfasdf__R_G__asdfasdf" source="TextInput:" type="Double" />
+                    <Field name="Right_asdfasdf__SLG__asdfasdf" source="TextInput:" type="Double" />
+                    <Field name="Right_asdfasdf__OPS__asdfasdf" source="TextInput:" type="Double" />
+                    <Field name="Right_asdfasdf__R_G__asdfasdf" source="TextInput:" type="Double" />
                   </RecordInfo>
                 </MetaInfo>
                 <MetaInfo connection="Right">
                   <RecordInfo>
-                    <Field name="SLG" source="TextInput:" type="Double" />
-                    <Field name="OPS" source="TextInput:" type="Double" />
+                    <Field name="asdfasdf__SLG__asdfasdf" source="TextInput:" type="Double" />
+                    <Field name="asdfasdf__OPS__asdfasdf" source="TextInput:" type="Double" />
+                    <Field name="asdfasdf__R_G__asdfasdf" source="TextInput:" type="Double" />
                   </RecordInfo>
                 </MetaInfo>
               </Properties>
               <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
             </Node>
+            <Node ToolID="416">
+              <GuiSettings>
+                <Position x="510" y="534" />
+              </GuiSettings>
+              <Properties>
+                <Configuration />
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+                <Dependencies>
+                  <Implicit />
+                </Dependencies>
+                <MetaInfo connection="Interactive Output">
+                  <RecordInfo>
+                    <Field name="x" size="2147483647" source="Formula: Replace([x], &quot;_DATA_&quot;, [data])" type="V_String" />
+                    <Field name="data" size="2147483647" source="Summarize: Concat - json" type="V_String" />
+                    <Field name="LIBPATH" size="10000" source="Formula: TrimRight([Field_1]) + &quot;\assets\&quot;" type="V_String" />
+                  </RecordInfo>
+                </MetaInfo>
+              </Properties>
+              <EngineSettings Macro="Predictive Tools\Supporting_Macros\IFS.yxmc" />
+            </Node>
           </ChildNodes>
         </Node>
         <Node ToolID="397">
           <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-            <Position x="270" y="688" width="601" height="356" />
+            <Position x="270" y="687" width="601" height="355" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -5517,7 +5529,7 @@ No Text Styling</DefaultAnnotationText>
           <ChildNodes>
             <Node ToolID="398">
               <GuiSettings Plugin="AlteryxRPluginGui.R">
-                <Position x="295" y="792" />
+                <Position x="295" y="790" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5525,8 +5537,8 @@ No Text Styling</DefaultAnnotationText>
 options(alteryx.wd = '%Engine.WorkflowDirectory%')
 library(AlteryxSim)
 config &lt;- list(
-  dependent = listInput('%Question.dependent%', "R_G"),
-  independent = listInput('%Question.independent%', c("SLG", "OPS"))
+  dependent = listInput('%Question.dependent%', "asdfasdf__R_G__asdfasdf"),
+  independent = listInput('%Question.independent%', c("asdfasdf__SLG__asdfasdf", "asdfasdf__OPS__asdfasdf"))
 )
 inputs &lt;- list(
   data = read.Alteryx("#1", mode="data.frame")
@@ -5573,21 +5585,21 @@ write.Alteryx(the.prs, 4)</RScript>
                 <MetaInfo connection="Output2">
                   <RecordInfo>
                     <Field name="independent_variable" size="1073741823" source="R-DATA:" type="V_WString" />
-                    <Field name="R_G" source="R-DATA:" type="Double" />
+                    <Field name="asdfasdf__R_G__asdfasdf" source="R-DATA:" type="Double" />
                   </RecordInfo>
                 </MetaInfo>
                 <MetaInfo connection="Output3">
                   <RecordInfo>
                     <Field name="independent_variable" size="1073741823" source="R-DATA:" type="V_WString" />
-                    <Field name="R_G" size="1073741823" source="R-DATA:" type="V_WString" />
+                    <Field name="asdfasdf__R_G__asdfasdf" size="1073741823" source="R-DATA:" type="V_WString" />
                   </RecordInfo>
                 </MetaInfo>
                 <MetaInfo connection="Output4">
                   <RecordInfo>
                     <Field name="Variable" size="1073741823" source="R-DATA:" type="V_WString" />
-                    <Field name="SLG" size="1073741823" source="R-DATA:" type="V_WString" />
-                    <Field name="OPS" size="1073741823" source="R-DATA:" type="V_WString" />
-                    <Field name="R_G" size="1073741823" source="R-DATA:" type="V_WString" />
+                    <Field name="asdfasdf__SLG__asdfasdf" size="1073741823" source="R-DATA:" type="V_WString" />
+                    <Field name="asdfasdf__OPS__asdfasdf" size="1073741823" source="R-DATA:" type="V_WString" />
+                    <Field name="asdfasdf__R_G__asdfasdf" size="1073741823" source="R-DATA:" type="V_WString" />
                   </RecordInfo>
                 </MetaInfo>
               </Properties>
@@ -5595,7 +5607,7 @@ write.Alteryx(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="401">
               <GuiSettings Plugin="PortfolioPluginsGui.ComposerTable.PortfolioComposerTable">
-                <Position x="415" y="816" />
+                <Position x="414" y="822" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5606,8 +5618,9 @@ write.Alteryx(the.prs, 4)</RScript>
                   <ShowBarGraph value="False" />
                   <TableFields orderChanged="False">
                     <Field name="independent_variable" selected="True" Alignment="Right" Alias="Independent Variable" Width="" />
-                    <Field name="R_G" selected="True" Alignment="Right" />
                     <Field name="*Unknown" selected="True" Alignment="Right" Width="" Places="0" />
+                    <Field name="asdfasdf__R_G__asdfasdf" selected="False" />
+                    <Field name="R_G" selected="False" />
                   </TableFields>
                   <TableStyles>
                     <Style Name="Data" Font="Arial" Size="8" TextColor="#000000" BackColor="#ffffff" AltColor="#f0f0f0" RowGroup="1" />
@@ -5632,7 +5645,7 @@ write.Alteryx(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="403">
               <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-                <Position x="512" y="739" />
+                <Position x="512" y="737" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5657,7 +5670,7 @@ write.Alteryx(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="404">
               <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-                <Position x="607" y="816" />
+                <Position x="607" y="814" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5682,7 +5695,7 @@ write.Alteryx(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="406">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-                <Position x="703" y="792" />
+                <Position x="703" y="790" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5706,7 +5719,7 @@ write.Alteryx(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="407">
               <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-                <Position x="787" y="795" />
+                <Position x="787" y="793" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5724,7 +5737,7 @@ write.Alteryx(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="408">
               <GuiSettings Plugin="PortfolioPluginsGui.ComposerTable.PortfolioComposerTable">
-                <Position x="415" y="888" />
+                <Position x="415" y="886" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5735,8 +5748,9 @@ write.Alteryx(the.prs, 4)</RScript>
                   <ShowBarGraph value="False" />
                   <TableFields orderChanged="False">
                     <Field name="independent_variable" selected="True" Alignment="Right" Width="" Places="0" Alias="Independent Variable" />
-                    <Field name="R_G" selected="True" Alignment="Right" Width="" Places="0" />
                     <Field name="*Unknown" selected="True" Alignment="Right" Width="" Places="0" />
+                    <Field name="asdfasdf__R_G__asdfasdf" selected="False" />
+                    <Field name="R_G" selected="False" />
                   </TableFields>
                   <TableStyles>
                     <Style Name="Data" Font="Arial" Size="8" TextColor="#000000" BackColor="#ffffff" AltColor="#f0f0f0" RowGroup="1" />
@@ -5761,7 +5775,7 @@ write.Alteryx(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="409">
               <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-                <Position x="607" y="888" />
+                <Position x="607" y="886" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5786,7 +5800,7 @@ write.Alteryx(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="410">
               <GuiSettings Plugin="PortfolioPluginsGui.ComposerText.PortfolioComposerText">
-                <Position x="415" y="732" />
+                <Position x="415" y="730" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5821,7 +5835,7 @@ write.Alteryx(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="411">
               <GuiSettings Plugin="PortfolioPluginsGui.ComposerText.PortfolioComposerText">
-                <Position x="511" y="816" />
+                <Position x="511" y="814" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5856,7 +5870,7 @@ write.Alteryx(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="412">
               <GuiSettings Plugin="PortfolioPluginsGui.ComposerText.PortfolioComposerText">
-                <Position x="511" y="888" />
+                <Position x="511" y="886" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5891,7 +5905,7 @@ write.Alteryx(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="413">
               <GuiSettings Plugin="PortfolioPluginsGui.ComposerText.PortfolioComposerText">
-                <Position x="510.9999" y="960" />
+                <Position x="510.9999" y="958" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5926,7 +5940,7 @@ write.Alteryx(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="414">
               <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-                <Position x="607" y="960" />
+                <Position x="607" y="958" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5951,7 +5965,7 @@ write.Alteryx(the.prs, 4)</RScript>
             </Node>
             <Node ToolID="415">
               <GuiSettings Plugin="PortfolioPluginsGui.ComposerTable.PortfolioComposerTable">
-                <Position x="415" y="960" />
+                <Position x="415" y="958" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -5962,10 +5976,11 @@ write.Alteryx(the.prs, 4)</RScript>
                   <ShowBarGraph value="False" />
                   <TableFields orderChanged="False">
                     <Field name="Variable" selected="True" Alignment="Right" Width="" Places="0" />
-                    <Field name="SLG" selected="True" Alignment="Right" Width="" Places="0" />
-                    <Field name="OPS" selected="True" Alignment="Right" Width="" Places="0" />
-                    <Field name="R_G" selected="True" Alignment="Right" Width="" Places="0" />
                     <Field name="*Unknown" selected="True" Alignment="Right" Width="" Places="0" />
+                    <Field name="asdfasdf__SLG__asdfasdf" selected="False" />
+                    <Field name="asdfasdf__OPS__asdfasdf" selected="False" />
+                    <Field name="asdfasdf__R_G__asdfasdf" selected="False" />
+                    <Field name="R_G" selected="False" />
                   </TableFields>
                   <TableStyles>
                     <Style Name="Data" Font="Arial" Size="8" TextColor="#000000" BackColor="#ffffff" AltColor="#f0f0f0" RowGroup="1" />
@@ -6043,16 +6058,16 @@ write.Alteryx(the.prs, 4)</RScript>
       <Destination ToolID="373" Connection="Right" />
     </Connection>
     <Connection>
-      <Origin ToolID="275" Connection="Interactive Output" />
-      <Destination ToolID="278" Connection="Input" />
-    </Connection>
-    <Connection>
       <Origin ToolID="278" Connection="Output" />
       <Destination ToolID="277" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="373" Connection="Join" />
-      <Destination ToolID="275" Connection="Input111" />
+      <Destination ToolID="416" Connection="Input111" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="416" Connection="Interactive Output" />
+      <Destination ToolID="278" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="398" Connection="Output2" />
@@ -6152,7 +6167,7 @@ write.Alteryx(the.prs, 4)</RScript>
     <MetaInfo>
       <NameIsFileName value="False" />
       <Name>Simulation Summary</Name>
-      <Description>Simulation Summary</Description>
+      <Description>Simulation Summary contains two main components. Firstly, it allows for a visualization of simulated distributions and results from operations on those distributions. Secondly, it allows for visual and quantitative analyses of input vs output variables.</Description>
       <RootToolName />
       <ToolVersion />
       <ToolInDb value="False" />
@@ -6177,7 +6192,7 @@ write.Alteryx(the.prs, 4)</RScript>
               <Description />
               <ToolId value="254" />
               <Expression>' &lt;SelectFields&gt;
-    &lt;SelectField field="' + 
+    &lt;SelectField field="' +
     replace(EscapeXMLMetacharacters([fields]), ",", '" selected="True" /&gt;
     &lt;SelectField field="') + '" selected="True" /&gt;
     &lt;SelectField field="*Unknown" selected="False" /&gt;
@@ -6190,7 +6205,7 @@ write.Alteryx(the.prs, 4)</RScript>
               <Description />
               <ToolId value="281" />
               <Expression>' &lt;SelectFields&gt;
-    &lt;SelectField field="' + 
+    &lt;SelectField field="' +
     replace(EscapeXMLMetacharacters([fields]), ",", '" selected="True" /&gt;
     &lt;SelectField field="') + '" selected="True" /&gt;
     &lt;SelectField field="*Unknown" selected="False" /&gt;
@@ -6315,7 +6330,7 @@ write.Alteryx(the.prs, 4)</RScript>
       <Wiz_OpenOutputTools>
         <Tool ToolId="270" Selected="True" />
         <Tool ToolId="279" Selected="True" />
-        <Tool ToolId="275" Selected="True" />
+        <Tool ToolId="416" Selected="True" />
         <Tool ToolId="277" Selected="True" />
         <Tool ToolId="407" Selected="True" />
       </Wiz_OpenOutputTools>
