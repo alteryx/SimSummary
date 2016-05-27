@@ -5505,7 +5505,7 @@ No Text Styling</DefaultAnnotationText>
                   </RecordInfo>
                 </MetaInfo>
               </Properties>
-              <EngineSettings Macro="IFS_noMiss.yxmc" />
+              <EngineSettings Macro="Predictive Tools\Supporting_Macros\IFS.yxmc" />
             </Node>
           </ChildNodes>
         </Node>
@@ -6192,7 +6192,7 @@ write.Alteryx(the.prs, 4)</RScript>
               <Description />
               <ToolId value="254" />
               <Expression>' &lt;SelectFields&gt;
-    &lt;SelectField field="' + 
+    &lt;SelectField field="' +
     replace(EscapeXMLMetacharacters([fields]), ",", '" selected="True" /&gt;
     &lt;SelectField field="') + '" selected="True" /&gt;
     &lt;SelectField field="*Unknown" selected="False" /&gt;
@@ -6205,7 +6205,7 @@ write.Alteryx(the.prs, 4)</RScript>
               <Description />
               <ToolId value="281" />
               <Expression>' &lt;SelectFields&gt;
-    &lt;SelectField field="' + 
+    &lt;SelectField field="' +
     replace(EscapeXMLMetacharacters([fields]), ",", '" selected="True" /&gt;
     &lt;SelectField field="') + '" selected="True" /&gt;
     &lt;SelectField field="*Unknown" selected="False" /&gt;
