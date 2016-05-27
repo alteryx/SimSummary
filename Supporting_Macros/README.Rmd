@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = FALSE)
 pluginName = 'SimSummary.yxmc'
 ```
 
-__Insert summary of the Simulation Scoring tool__
+Simulation Summary contains two main components. Firstly, it allows for a visualization of simulated distributions and results from operations on those distributions. Secondly, it allows for visual and quantitative analyses of input vs output variables.
 
 _Note: This tool uses the R tool. Install R and the necessary packages by going to Options > Download Predictive Tools._
 
