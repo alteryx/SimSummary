@@ -5439,7 +5439,6 @@ inputs &lt;- list(
   data = read.Alteryx("#1", mode="data.frame")
 )
 
-print(str(inputs$data))
 inputs$data &lt;- Filter(is.numeric, inputs$data)
 
 numericNames &lt;- colnames(inputs$data)
@@ -5463,7 +5462,7 @@ if(length(config$independent) &gt;= 1 &amp;&amp;
   # Output 1: Scatter Plot
   AlteryxGraph(1, width=576*length(config$independent), height=576*length(config$dependent))
   saScat(inputs$data, config$independent, config$dependent)
-	invisible(dev.off())
+  invisible(dev.off())
   
   # Output 2: Importance Index
   importances &lt;- saImportance(inputs$data, config$independent, config$dependent)
@@ -5486,14 +5485,14 @@ if(length(config$independent) &gt;= 1 &amp;&amp;
   }
   write.Alteryx(the.prs, 4)
 } else {
-	  AlteryxGraph(1, width=576, height=576)
-		plot.new()
-		invisible(dev.off())
-
-		df &lt;- data.frame(info = "No numeric inputs/outputs. Nothing to report")
-		write.Alteryx(df, 2)
-		write.Alteryx(df, 3)
-		write.Alteryx(df, 4)
+  AlteryxGraph(1, width=576, height=576)
+  plot.new()
+  invisible(dev.off())
+  
+  df &lt;- data.frame(info = "No numeric inputs/outputs. Nothing to report")
+  write.Alteryx(df, 2)
+  write.Alteryx(df, 3)
+  write.Alteryx(df, 4)
 }</RScript>
                   <UseFullUpdate value="False" />
                 </Configuration>
@@ -5931,7 +5930,7 @@ if(length(config$independent) &gt;= 1 &amp;&amp;
               </GuiSettings>
               <Properties>
                 <Configuration>
-                  <TempFile>C:\Users\DBLANC~1\AppData\Local\Temp\Engine_5240_d8ae0f63ebe544d1b0b15bd878145451_\Engine_5560_947094ed3519440db13582754f8682b3_.yxdb</TempFile>
+                  <TempFile>C:\Users\DBLANC~1\AppData\Local\Temp\Engine_7304_a4cdf2ba047d45098deb2a9570e3b725_\Engine_5560_f92d7a5781114d799760b8bd1213ea28_.yxdb</TempFile>
                   <Layout>
                     <ViewMode>Single</ViewMode>
                     <ViewSize value="100" />
