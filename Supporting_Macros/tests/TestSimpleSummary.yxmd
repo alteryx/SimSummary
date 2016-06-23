@@ -8,7 +8,7 @@
       <Properties>
         <Configuration>
           <Passwords />
-          <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Users\dblanchard\Documents\svn\DBlanchardSandbox\share_with_Debian_VM\git\SimSummary\Supporting_Macros\tests\summarySabrInput.yxdb</File>
+          <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">.\summarySabrInput.yxdb</File>
           <FormatSpecificOptions />
         </Configuration>
         <Annotation DisplayMode="0">
@@ -16,6 +16,9 @@
           <DefaultAnnotationText>summarySabrInput.yxdb</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="SLG" source="R-DATA:" type="Double" />
